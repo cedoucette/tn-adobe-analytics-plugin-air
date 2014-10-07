@@ -15,7 +15,7 @@ package com.tribalnova.extensions.adobe.analytics
 			super();
 			
 			// Second parameter is optional and supplies context to matove code
-			_extContext = ExtensionContext.createExtensionContext("com.tribalnova.extensionms.adobe.analytics", "" );
+			_extContext = ExtensionContext.createExtensionContext("com.tribalnova.extensions.adobe.analytics", "" );
 			
 			if ( _extContext == null )
 				throw new Error( "Extension is not supported on this platform." );

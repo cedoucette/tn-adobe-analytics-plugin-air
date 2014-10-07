@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>338589EC-97B5-4ABE-A619-9AF96756442B</string>
+	<key>IDESourceControlProjectName</key>
+	<string>analytics</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>90867F31-3882-4701-B57E-FB892D08346F</key>
+		<string>https://bitbucket.org/tribalnova/tn-adobe-analytics-plugin-air.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>native-ios/analytics/analytics.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>90867F31-3882-4701-B57E-FB892D08346F</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://bitbucket.org/tribalnova/tn-adobe-analytics-plugin-air.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>90867F31-3882-4701-B57E-FB892D08346F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>90867F31-3882-4701-B57E-FB892D08346F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>tn-adobe-analytics-plugin-air</string>
+		</dict>
+	</array>
+</dict>
+</plist>
