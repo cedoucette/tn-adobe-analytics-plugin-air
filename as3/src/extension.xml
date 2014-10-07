@@ -15,8 +15,8 @@
                 <finalizer>AdobeMobileAnalyticsFinalizer</finalizer>
             </applicationDeployment>
         </platform>
-        <!-- platform name="default">
+        <platform name="default">
             <applicationDeployment/>
-        </platform -->
+        </platform>
 	</platforms>
 </extension>

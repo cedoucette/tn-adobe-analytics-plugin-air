@@ -43,7 +43,7 @@ package com.tribalnova.extensions.adobe.analytics
 		
 		private function init():void
 		{
-			_extContext.call( "init" );
+			// _extContext.call( "init" );
 		}
 		
 		public function helloWorld():String
