@@ -46,9 +46,9 @@ package com.tribalnova.extensions.adobe.analytics
 			_extContext.call( "init" );
 		}
 		
-		public function helloWorld():void
+		public function helloWorld():String
 		{
-			_extContext.call( "helloWorld" );
+			return _extContext.call( "helloWorld" ) as String;
 		}
 	}
 }

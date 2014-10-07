@@ -10,13 +10,13 @@
         </platform -->
         <platform name="iPhone-ARM">
             <applicationDeployment>
-                <nativeLibrary>resources/libanalytics.a</nativeLibrary>
+                <nativeLibrary>libAdobeMobileAnalytics.a</nativeLibrary>
                 <initializer>AdobeMobileAnalyticsInitializer</initializer>
                 <finalizer>AdobeMobileAnalyticsFinalizer</finalizer>
             </applicationDeployment>
         </platform>
-        <platform name="default">
+        <!-- platform name="default">
             <applicationDeployment/>
-        </platform>
+        </platform -->
 	</platforms>
 </extension>
