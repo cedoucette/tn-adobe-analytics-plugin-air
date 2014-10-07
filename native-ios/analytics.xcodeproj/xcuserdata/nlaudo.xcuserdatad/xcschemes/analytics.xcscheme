@@ -5,6 +5,25 @@
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
+      <PostActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "cp &quot;${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}&quot; &quot;${SYMROOT}/../../as3/native-binaries&quot;"
+               shellToInvoke = "/bin/sh">
+               <EnvironmentBuildable>
+                  <BuildableReference
+                     BuildableIdentifier = "primary"
+                     BlueprintIdentifier = "4A90628B19E4487700E11030"
+                     BuildableName = "libanalytics.a"
+                     BlueprintName = "analytics"
+                     ReferencedContainer = "container:analytics.xcodeproj">
+                  </BuildableReference>
+               </EnvironmentBuildable>
+            </ActionContent>
+         </ExecutionAction>
+      </PostActions>
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"
@@ -49,24 +68,6 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <PostActions>
-         <ExecutionAction
-            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
-            <ActionContent
-               title = "Run Script"
-               scriptText = "/Users/nlaudo/Documents/_work/_Dev/Analytics/tn-adobe-analytics-plugin-air/native-ios/post_build.sh">
-               <EnvironmentBuildable>
-                  <BuildableReference
-                     BuildableIdentifier = "primary"
-                     BlueprintIdentifier = "4A90628B19E4487700E11030"
-                     BuildableName = "libanalytics.a"
-                     BlueprintName = "analytics"
-                     ReferencedContainer = "container:analytics.xcodeproj">
-                  </BuildableReference>
-               </EnvironmentBuildable>
-            </ActionContent>
-         </ExecutionAction>
-      </PostActions>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

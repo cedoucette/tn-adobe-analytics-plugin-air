@@ -13,7 +13,7 @@ NAME="AdobeMobileAnalytics"
 echo "Copy assets"
 mkdir -p build
 cp src/*.xml build
-cp native-binaries/libAdobeMobileAnalytics.a build
+cp native-binaries/libanalytics.a build
 
 echo "Generate SWC"
 $ACOMPC -source-path src/ -include-classes $INCLUDE_CLASSES -swf-version=$SWFVERSION -output build/$NAME.swc
