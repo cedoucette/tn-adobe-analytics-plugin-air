@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Adobe Mobile Analytics - XCode" 
+	basedir="."
+	default="xcode.build" 
+	>
+	<description>
+		Adobe Mobile Analytics - XCode
+    </description>
+	
+	<property file="xcode.properties" />
+	
+	<target name="xcode.buildtype" description="Set the build type">
+		<condition property="xcode-prop.build.type" value="Release" else="Debug">
+			<equals arg1="${xcode-prop.build.debug}" arg2="false" casesensitive="false" />
+		</condition>
+	</target>
+	
+	<target name="xcode.cleanbuild" depends="xcode.buildtype" description="Clean the iOS Library">
+	    <exec executable="xcodebuild" failonerror="true" dir="${xcode-prop.project.root}">
+	        <arg line="clean -configuration ${xcode-prop.build.type}" />
+	    </exec>
+	</target>
+	
+	<target name="xcode.build" depends="xcode.cleanbuild" description="Build the iOS Library">
+        <exec executable="xcodebuild" failonerror="true" dir="${xcode-prop.project.root}">
+            <arg line="-project ${xcode-prop.project.name}.xcodeproj
+                       -target ${xcode-prop.project.name}
+                       -configuration ${xcode-prop.build.type}
+                       SYMROOT=${xcode-prop.build.outputdir}"
+            /> 
+        </exec>
+        <copy file="${xcode-prop.project.root}/${xcode-prop.build.outputdir}/${xcode-prop.build.type}-iphoneos/lib${xcode-prop.project.name}.a" tofile="${xcode-prop.bin.path}" overwrite="true" />
+        <antcall target="xcode.clean" />
+		
+	</target>
+	
+	<target name="xcode.clean" description="Clean the XCode folder">
+				<delete dir="${xcode-prop.build.outputdir}" />
+				<delete dir="DerivedData" />
+	</target>
+	
+</project>
