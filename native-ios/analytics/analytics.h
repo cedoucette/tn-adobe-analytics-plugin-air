@@ -22,4 +22,6 @@ void AdobeMobileAnalyticsContextFinalizer(FREContext ctx);
 void AdobeMobileAnalyticsInitializer(void** extDataToSet, FREContextInitializer* ctxInitializerToSet, FREContextFinalizer* ctxFinalizerToSet);
 void AdobeMobileAnalyticsFinalizer(void* extData);
 
+FREObject helloWorld(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
+
 @end
