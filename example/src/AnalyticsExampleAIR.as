@@ -3,6 +3,8 @@ package
 	import com.tribalnova.extensions.adobe.analytics.AdobeMobileAnalytics;
 	
 	import flash.display.Sprite;
+	import flash.events.MouseEvent;
+	import flash.events.TouchEvent;
 	import flash.text.TextField;
 	
 	public class AnalyticsExampleAIR extends Sprite
@@ -22,6 +24,12 @@ package
 			_tf.text = 'The next line should say "Hello world" :\n\n\t'
 						+ _ane.helloWorld();
 			addChild( _tf );
+			this.addEventListener(MouseEvent.CLICK, onTouch);
+		}
+		
+		protected function onTouch(event:MouseEvent):void
+		{
+			_ane.helloYou();
 		}
 	}
 }

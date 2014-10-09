@@ -18,12 +18,16 @@ void AdobeMobileAnalyticsContextInitializer(void* extData, const uint8_t* ctxTyp
     
     NSLog(@"Entering ContextInitializer()");
     
-	*numFunctionsToTest = 1;
+	*numFunctionsToTest = 2;
 	FRENamedFunction* func = (FRENamedFunction*)malloc(sizeof(FRENamedFunction) * 1);
     
 	func[0].name = (const uint8_t*)"helloWorld";
 	func[0].functionData = NULL;
 	func[0].function = &helloWorld;
+    
+    func[1].name = (const uint8_t*)"helloYou";
+	func[1].functionData = NULL;
+	func[1].function = &helloYou;
     
 	*functionsToSet = func;
     
@@ -95,6 +99,24 @@ FREObject helloWorld(FREContext ctx, void* funcData, uint32_t argc, FREObject ar
     
     // Return data back to ActionScript
     return retStr;
+}
+
+FREObject helloYou(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[])
+{
+    NSLog(@"Entering helloYou()");
+    
+    // Create Hello World String
+    NSString *helloString = @"Hello World!";
+    
+    // Convert Obj-C string to C UTF8String
+    const char *str = [helloString UTF8String];
+    
+    // Prepare for AS3
+    FREObject retStr;
+    FRENewObjectFromUTF8(strlen(str)+1.0, (const uint8_t*)str, &retStr);
+    
+    // Return data back to ActionScript
+    return nil;
 }
 
 @end

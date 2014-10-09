@@ -16,6 +16,10 @@
 		4A9062A419E4487700E11030 /* libanalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A90628C19E4487700E11030 /* libanalytics.a */; };
 		4A9062AA19E4487700E11030 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A9062A819E4487700E11030 /* InfoPlist.strings */; };
 		4A9062AC19E4487700E11030 /* analyticsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9062AB19E4487700E11030 /* analyticsTests.m */; };
+		4AA818A919E5BDF400CB44E4 /* admsAppLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AA818A519E5BDF400CB44E4 /* admsAppLibrary.a */; };
+		4AA818AA19E5BDF400CB44E4 /* admsAppLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AA818A519E5BDF400CB44E4 /* admsAppLibrary.a */; };
+		4AA818AB19E5BDF400CB44E4 /* TrackingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA818A819E5BDF400CB44E4 /* TrackingHelper.m */; };
+		4AA818AC19E5BDF400CB44E4 /* TrackingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA818A819E5BDF400CB44E4 /* TrackingHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +58,13 @@
 		4A9062A919E4487700E11030 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4A9062AB19E4487700E11030 /* analyticsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = analyticsTests.m; sourceTree = "<group>"; };
 		4A9062B519E4491A00E11030 /* FlashRuntimeExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlashRuntimeExtensions.h; sourceTree = "<group>"; };
+		4AA818A119E5BDF400CB44E4 /* ADMS_AudienceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADMS_AudienceManager.h; sourceTree = "<group>"; };
+		4AA818A219E5BDF400CB44E4 /* ADMS_MboxFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADMS_MboxFactory.h; sourceTree = "<group>"; };
+		4AA818A319E5BDF400CB44E4 /* ADMS_Measurement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADMS_Measurement.h; sourceTree = "<group>"; };
+		4AA818A419E5BDF400CB44E4 /* ADMS_MediaMeasurement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADMS_MediaMeasurement.h; sourceTree = "<group>"; };
+		4AA818A519E5BDF400CB44E4 /* admsAppLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = admsAppLibrary.a; sourceTree = "<group>"; };
+		4AA818A719E5BDF400CB44E4 /* TrackingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackingHelper.h; sourceTree = "<group>"; };
+		4AA818A819E5BDF400CB44E4 /* TrackingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackingHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AA818A919E5BDF400CB44E4 /* admsAppLibrary.a in Frameworks */,
 				4A90629019E4487700E11030 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -72,6 +84,7 @@
 				4A9062A419E4487700E11030 /* libanalytics.a in Frameworks */,
 				4A90629E19E4487700E11030 /* XCTest.framework in Frameworks */,
 				4A9062A119E4487700E11030 /* UIKit.framework in Frameworks */,
+				4AA818AA19E5BDF400CB44E4 /* admsAppLibrary.a in Frameworks */,
 				4A90629F19E4487700E11030 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -82,6 +95,7 @@
 		4A90628319E4487700E11030 = {
 			isa = PBXGroup;
 			children = (
+				4AA818A019E5BDF400CB44E4 /* ADMS_AppLibrary */,
 				4A90629119E4487700E11030 /* analytics */,
 				4A9062A519E4487700E11030 /* analyticsTests */,
 				4A90628E19E4487700E11030 /* Frameworks */,
@@ -143,6 +157,29 @@
 				4A9062A819E4487700E11030 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4AA818A019E5BDF400CB44E4 /* ADMS_AppLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				4AA818A119E5BDF400CB44E4 /* ADMS_AudienceManager.h */,
+				4AA818A219E5BDF400CB44E4 /* ADMS_MboxFactory.h */,
+				4AA818A319E5BDF400CB44E4 /* ADMS_Measurement.h */,
+				4AA818A419E5BDF400CB44E4 /* ADMS_MediaMeasurement.h */,
+				4AA818A519E5BDF400CB44E4 /* admsAppLibrary.a */,
+				4AA818A619E5BDF400CB44E4 /* Examples */,
+			);
+			name = ADMS_AppLibrary;
+			path = analytics/ADMS_AppLibrary;
+			sourceTree = "<group>";
+		};
+		4AA818A619E5BDF400CB44E4 /* Examples */ = {
+			isa = PBXGroup;
+			children = (
+				4AA818A719E5BDF400CB44E4 /* TrackingHelper.h */,
+				4AA818A819E5BDF400CB44E4 /* TrackingHelper.m */,
+			);
+			path = Examples;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AA818AB19E5BDF400CB44E4 /* TrackingHelper.m in Sources */,
 				4A90629719E4487700E11030 /* analytics.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -233,6 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AA818AC19E5BDF400CB44E4 /* TrackingHelper.m in Sources */,
 				4A9062AC19E4487700E11030 /* analyticsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,9 +372,14 @@
 				DSTROOT = /tmp/analytics.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "analytics/analytics-Prefix.pch";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/analytics/ADMS_AppLibrary",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -345,9 +389,14 @@
 				DSTROOT = /tmp/analytics.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "analytics/analytics-Prefix.pch";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/analytics/ADMS_AppLibrary",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
 		};
@@ -366,6 +415,10 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "analyticsTests/analyticsTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/analytics/ADMS_AppLibrary",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -382,6 +435,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "analytics/analytics-Prefix.pch";
 				INFOPLIST_FILE = "analyticsTests/analyticsTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/analytics/ADMS_AppLibrary",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -406,6 +463,7 @@
 				4A9062B119E4487700E11030 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4A9062B219E4487700E11030 /* Build configuration list for PBXNativeTarget "analyticsTests" */ = {
 			isa = XCConfigurationList;
@@ -414,6 +472,7 @@
 				4A9062B419E4487700E11030 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

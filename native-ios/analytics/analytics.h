@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "FlashRuntimeExtensions.h"
+#import "ADMS_AppLibrary/ADMS_Measurement.h"
 
 @interface analytics : NSObject
 /* ExtInitializer()
@@ -23,5 +24,23 @@ void AdobeMobileAnalyticsInitializer(void** extDataToSet, FREContextInitializer*
 void AdobeMobileAnalyticsFinalizer(void* extData);
 
 FREObject helloWorld(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
+
+FREObject helloYou(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
+/*
+FREObject initPrivacyStatus();
+
++ (void) trackAction:(NSString *)action data:(NSDictionary *)data;
++ (void) trackActionWithProductInfo:(NSString *)action data:(NSString *)data;
++ (void) trackState:(NSString *)state data:(NSDictionary *)data;
+
++ (void) trackTimedActionStart:(NSString *)action data:(NSDictionary *)data;
++ (void) trackTimedActionStart:(NSString *)action info:(NSString *)info;
+
++ (void) trackTimedActionUpdate:(NSString *)action data:(NSDictionary *)data;
++ (void) trackTimedActionUpdate:(NSString *)action info:(NSString *)info;
+
++ (void) trackTimedActionEnd:(NSString *)action data:(NSDictionary *)productData;
++ (void) trackTimedActionEnd:(NSString *)action info:(NSString *)info;
+*/
 
 @end

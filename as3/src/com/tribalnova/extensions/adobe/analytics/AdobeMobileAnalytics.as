@@ -50,6 +50,11 @@ package com.tribalnova.extensions.adobe.analytics
 		{
 			return _extContext.call( "helloWorld" ) as String;
 		}
+		
+		public function helloYou():String
+		{
+			return _extContext.call( "helloYou" ) as String;
+		}
 	}
 }
 
