@@ -26,10 +26,10 @@ void AdobeMobileAnalyticsFinalizer(void* extData);
 FREObject helloWorld(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
 
 FREObject helloYou(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
-/*
-FREObject initPrivacyStatus();
 
-+ (void) trackAction:(NSString *)action data:(NSDictionary *)data;
+FREObject getStringFromAS3(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
+
+/*
 + (void) trackActionWithProductInfo:(NSString *)action data:(NSString *)data;
 + (void) trackState:(NSString *)state data:(NSDictionary *)data;
 

@@ -51,9 +51,14 @@ package com.tribalnova.extensions.adobe.analytics
 			return _extContext.call( "helloWorld" ) as String;
 		}
 		
-		public function helloYou():String
+		public function helloYou():void
 		{
-			return _extContext.call( "helloYou" ) as String;
+			_extContext.call( "helloYou" );
+		}
+		
+		public function getStringFromAS3(state:String):void
+		{
+			_extContext.call( "getStringFromAS3", state );
 		}
 	}
 }

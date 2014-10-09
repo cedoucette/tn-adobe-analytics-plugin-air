@@ -18,7 +18,7 @@ void AdobeMobileAnalyticsContextInitializer(void* extData, const uint8_t* ctxTyp
     
     NSLog(@"Entering ContextInitializer()");
     
-	*numFunctionsToTest = 2;
+	*numFunctionsToTest = 3;
 	FRENamedFunction* func = (FRENamedFunction*)malloc(sizeof(FRENamedFunction) * 1);
     
 	func[0].name = (const uint8_t*)"helloWorld";
@@ -28,6 +28,10 @@ void AdobeMobileAnalyticsContextInitializer(void* extData, const uint8_t* ctxTyp
     func[1].name = (const uint8_t*)"helloYou";
 	func[1].functionData = NULL;
 	func[1].function = &helloYou;
+    
+    func[1].name = (const uint8_t*)"getStringFromAS3";
+	func[1].functionData = NULL;
+	func[1].function = &getStringFromAS3;
     
 	*functionsToSet = func;
     
@@ -104,18 +108,28 @@ FREObject helloWorld(FREContext ctx, void* funcData, uint32_t argc, FREObject ar
 FREObject helloYou(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[])
 {
     NSLog(@"Entering helloYou()");
+    return nil;
+}
+
+FREObject getStringFromAS3(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[])
+{
     
-    // Create Hello World String
-    NSString *helloString = @"Hello World!";
+    //Must read : http://www.adobe.com/devnet/air/articles/transferring-data-ane-ios-pt1.html
     
-    // Convert Obj-C string to C UTF8String
-    const char *str = [helloString UTF8String];
+    // To be filled
+    uint32_t string1Length;
+    const uint8_t *string1;
+    //Read Data
+    FREGetObjectAsUTF8(argv[0], &string1Length, &string1);
     
-    // Prepare for AS3
-    FREObject retStr;
-    FRENewObjectFromUTF8(strlen(str)+1.0, (const uint8_t*)str, &retStr);
+    // Convert C strings to Obj-C strings
+    NSString *string1ObjC = [NSString stringWithUTF8String:(char*)string1];
     
-    // Return data back to ActionScript
+    //Log the result
+    NSLog(@"getStringFromAS3");
+    NSLog( @"%@", string1ObjC);
+    
+    
     return nil;
 }
 
