@@ -34,7 +34,7 @@
           <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/automation_agent.swc" useDefaultLinkType="false"/>
         </excludedEntries>
       </libraryPathEntry>
-      <libraryPathEntry kind="5" linkType="2" path="${DOCUMENTS}/tn-adobe-analytics-plugin-air/extension/AdobeMobileAnalytics.ane"/>
+      <libraryPathEntry kind="5" linkType="2" path="/Users/nlaudo/Documents/_work/_Dev/Analytics/tn-adobe-analytics-plugin-air/extension/AdobeMobileAnalytics.ane"/>
     </libraryPath>
     <sourceAttachmentPath/>
   </compiler>
@@ -48,12 +48,12 @@
   <buildCSSFiles/>
   <flashCatalyst validateFlashCatalystCompatibility="false"/>
   <buildTargets>
-    <buildTarget buildTargetName="device" iosSettingsVersion="2" isCurrent="true" platformId="com.adobe.flexide.multiplatform.ios.platform" provisioningFile="/Users/sharley/Workspace/tn-adobe-analytics-plugin-air/example/cert/TN_In_House.mobileprovision" releasePackageType="">
+    <buildTarget buildTargetName="device" iosSettingsVersion="2" isCurrent="true" platformId="com.adobe.flexide.multiplatform.ios.platform" provisioningFile="/Users/nlaudo/Documents/_work/_Dev/Analytics/tn-adobe-analytics-plugin-air/example/cert/TN_In_House.mobileprovision" releasePackageType="">
       <multiPlatformSettings enabled="true" hideAneLibSymbols="0" includePlatformLibs="false" platformID="com.adobe.flexide.multiplatform.ios.platform" reducedSizePackaging="false" version="1"/>
-      <airSettings airCertificatePath="/Users/sharley/Workspace/tn-adobe-analytics-plugin-air/example/cert/ios_distribution_in_house.p12" airTimestamp="true" anePathSet="true" version="1">
+      <airSettings airCertificatePath="/Users/nlaudo/Documents/_work/_Dev/Analytics/tn-adobe-analytics-plugin-air/example/cert/ios_distribution_in_house.p12" airTimestamp="true" anePathSet="true" version="1">
         <airExcludes/>
         <anePaths>
-          <anePathEntry path="${DOCUMENTS}/tn-adobe-analytics-plugin-air/extension/AdobeMobileAnalytics.ane"/>
+          <anePathEntry path="/Users/nlaudo/Documents/_work/_Dev/Analytics/tn-adobe-analytics-plugin-air/extension/AdobeMobileAnalytics.ane"/>
         </anePaths>
         <newLaunchParams/>
         <modifiedLaunchParams/>
@@ -65,6 +65,18 @@
     <buildTarget buildTargetName="default" isCurrent="true" platformId="default">
       <multiPlatformSettings enabled="false" hideAneLibSymbols="0" includePlatformLibs="false" platformID="default" reducedSizePackaging="false" version="1"/>
       <airSettings airCertificatePath="" airTimestamp="true" anePathSet="false" version="1">
+        <airExcludes/>
+        <anePaths/>
+        <newLaunchParams/>
+        <modifiedLaunchParams/>
+        <newPackagingParams/>
+        <modifiedPackagingParams/>
+      </airSettings>
+      <actionScriptSettings version="1"/>
+    </buildTarget>
+    <buildTarget airDownloadURL="" androidSettingsVersion="2" buildTargetName="device" isCurrent="true" platformId="com.adobe.flexide.multiplatform.android.platform">
+      <multiPlatformSettings enabled="false" hideAneLibSymbols="0" includePlatformLibs="false" platformID="com.adobe.flexide.multiplatform.android.platform" reducedSizePackaging="false" version="1"/>
+      <airSettings airCertificatePath="" airTimestamp="true" anePathSet="true" version="1">
         <airExcludes/>
         <anePaths/>
         <newLaunchParams/>

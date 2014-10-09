@@ -4,7 +4,6 @@ package
 	
 	import flash.display.Sprite;
 	import flash.events.MouseEvent;
-	import flash.events.TouchEvent;
 	import flash.text.TextField;
 	
 	public class AnalyticsExampleAIR extends Sprite
@@ -29,7 +28,8 @@ package
 		
 		protected function onTouch(event:MouseEvent):void
 		{
-			_ane.helloYou();
+			//_ane.helloYou();
+			_ane.getStringFromAS3("They touched me!");
 		}
 	}
 }
