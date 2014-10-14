@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "FlashRuntimeExtensions.h"
-#import "ADMS_AppLibrary/ADMS_Measurement.h"
+#import "ADBMobile.h"
 
 @interface analytics : NSObject
 /* ExtInitializer()

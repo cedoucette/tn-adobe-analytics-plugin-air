@@ -1,6 +1,6 @@
 #!/bin/bash
 
-AIRSDK_HOME=/Users/sharley/SDK/AIR_15.0/bin
+AIRSDK_HOME=./AIRSDK/bin
 ACOMPC="$AIRSDK_HOME/acompc"
 ADT="$AIRSDK_HOME/adt"
 # echo $ACOMPC
@@ -22,7 +22,7 @@ echo -e "\033[0m"
 
 
 type ant &>/dev/null && ant -f ./native-ios/build-xcode.xml || echo -e "\033[31m ant not found. Skipping...\033[0m"
-
+cp ./native-ios/build/libAdobeMobileAnalytics.a $ANE_HOME/native-binaries
 
 echo -e "\033[36m"
 echo "Prepare workspace"

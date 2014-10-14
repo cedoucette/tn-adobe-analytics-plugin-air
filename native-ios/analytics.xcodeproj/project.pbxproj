@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4A28056119ED717F0042BE95 /* AsToObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A28056019ED717F0042BE95 /* AsToObjC.m */; };
+		4A28056719EDC0E60042BE95 /* ADBMobileConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A28056519EDC0E60042BE95 /* ADBMobileConfig.json */; };
+		4A28056819EDC0E60042BE95 /* AdobeMobileLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A28056619EDC0E60042BE95 /* AdobeMobileLibrary.a */; };
 		4A90629019E4487700E11030 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A90628F19E4487700E11030 /* Foundation.framework */; };
 		4A90629519E4487700E11030 /* analytics.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A90629419E4487700E11030 /* analytics.h */; };
 		4A90629719E4487700E11030 /* analytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A90629619E4487700E11030 /* analytics.m */; };
@@ -17,10 +19,6 @@
 		4A9062A419E4487700E11030 /* libanalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A90628C19E4487700E11030 /* libanalytics.a */; };
 		4A9062AA19E4487700E11030 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A9062A819E4487700E11030 /* InfoPlist.strings */; };
 		4A9062AC19E4487700E11030 /* analyticsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9062AB19E4487700E11030 /* analyticsTests.m */; };
-		4AA818A919E5BDF400CB44E4 /* admsAppLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AA818A519E5BDF400CB44E4 /* admsAppLibrary.a */; };
-		4AA818AA19E5BDF400CB44E4 /* admsAppLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AA818A519E5BDF400CB44E4 /* admsAppLibrary.a */; };
-		4AA818AB19E5BDF400CB44E4 /* TrackingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA818A819E5BDF400CB44E4 /* TrackingHelper.m */; };
-		4AA818AC19E5BDF400CB44E4 /* TrackingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA818A819E5BDF400CB44E4 /* TrackingHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +46,9 @@
 
 /* Begin PBXFileReference section */
 		4A28056019ED717F0042BE95 /* AsToObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsToObjC.m; path = analytics/AsToObjC.m; sourceTree = "<group>"; };
+		4A28056419EDC0E60042BE95 /* ADBMobile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADBMobile.h; sourceTree = "<group>"; };
+		4A28056519EDC0E60042BE95 /* ADBMobileConfig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ADBMobileConfig.json; sourceTree = "<group>"; };
+		4A28056619EDC0E60042BE95 /* AdobeMobileLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = AdobeMobileLibrary.a; sourceTree = "<group>"; };
 		4A90628C19E4487700E11030 /* libanalytics.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libanalytics.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A90628F19E4487700E11030 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4A90629319E4487700E11030 /* analytics-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "analytics-Prefix.pch"; sourceTree = "<group>"; };
@@ -60,13 +61,6 @@
 		4A9062A919E4487700E11030 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4A9062AB19E4487700E11030 /* analyticsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = analyticsTests.m; sourceTree = "<group>"; };
 		4A9062B519E4491A00E11030 /* FlashRuntimeExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlashRuntimeExtensions.h; sourceTree = "<group>"; };
-		4AA818A119E5BDF400CB44E4 /* ADMS_AudienceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADMS_AudienceManager.h; sourceTree = "<group>"; };
-		4AA818A219E5BDF400CB44E4 /* ADMS_MboxFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADMS_MboxFactory.h; sourceTree = "<group>"; };
-		4AA818A319E5BDF400CB44E4 /* ADMS_Measurement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADMS_Measurement.h; sourceTree = "<group>"; };
-		4AA818A419E5BDF400CB44E4 /* ADMS_MediaMeasurement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADMS_MediaMeasurement.h; sourceTree = "<group>"; };
-		4AA818A519E5BDF400CB44E4 /* admsAppLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = admsAppLibrary.a; sourceTree = "<group>"; };
-		4AA818A719E5BDF400CB44E4 /* TrackingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackingHelper.h; sourceTree = "<group>"; };
-		4AA818A819E5BDF400CB44E4 /* TrackingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackingHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +68,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AA818A919E5BDF400CB44E4 /* admsAppLibrary.a in Frameworks */,
 				4A90629019E4487700E11030 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -86,8 +79,8 @@
 				4A9062A419E4487700E11030 /* libanalytics.a in Frameworks */,
 				4A90629E19E4487700E11030 /* XCTest.framework in Frameworks */,
 				4A9062A119E4487700E11030 /* UIKit.framework in Frameworks */,
-				4AA818AA19E5BDF400CB44E4 /* admsAppLibrary.a in Frameworks */,
 				4A90629F19E4487700E11030 /* Foundation.framework in Frameworks */,
+				4A28056819EDC0E60042BE95 /* AdobeMobileLibrary.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,9 +96,20 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		4A28056319EDC0E60042BE95 /* AdobeMobileLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				4A28056419EDC0E60042BE95 /* ADBMobile.h */,
+				4A28056519EDC0E60042BE95 /* ADBMobileConfig.json */,
+				4A28056619EDC0E60042BE95 /* AdobeMobileLibrary.a */,
+			);
+			path = AdobeMobileLibrary;
+			sourceTree = "<group>";
+		};
 		4A90628319E4487700E11030 = {
 			isa = PBXGroup;
 			children = (
+				4A28056319EDC0E60042BE95 /* AdobeMobileLibrary */,
 				4A90629119E4487700E11030 /* analytics */,
 				4A9062A519E4487700E11030 /* analyticsTests */,
 				4A90628E19E4487700E11030 /* Frameworks */,
@@ -135,7 +139,6 @@
 		4A90629119E4487700E11030 /* analytics */ = {
 			isa = PBXGroup;
 			children = (
-				4AA818A019E5BDF400CB44E4 /* ADMS_AppLibrary */,
 				4A28056219ED71900042BE95 /* Utils */,
 				4A90629419E4487700E11030 /* analytics.h */,
 				4A90629619E4487700E11030 /* analytics.m */,
@@ -169,28 +172,6 @@
 				4A9062A819E4487700E11030 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		4AA818A019E5BDF400CB44E4 /* ADMS_AppLibrary */ = {
-			isa = PBXGroup;
-			children = (
-				4AA818A119E5BDF400CB44E4 /* ADMS_AudienceManager.h */,
-				4AA818A219E5BDF400CB44E4 /* ADMS_MboxFactory.h */,
-				4AA818A319E5BDF400CB44E4 /* ADMS_Measurement.h */,
-				4AA818A419E5BDF400CB44E4 /* ADMS_MediaMeasurement.h */,
-				4AA818A519E5BDF400CB44E4 /* admsAppLibrary.a */,
-				4AA818A619E5BDF400CB44E4 /* Examples */,
-			);
-			path = ADMS_AppLibrary;
-			sourceTree = "<group>";
-		};
-		4AA818A619E5BDF400CB44E4 /* Examples */ = {
-			isa = PBXGroup;
-			children = (
-				4AA818A719E5BDF400CB44E4 /* TrackingHelper.h */,
-				4AA818A819E5BDF400CB44E4 /* TrackingHelper.m */,
-			);
-			path = Examples;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A9062AA19E4487700E11030 /* InfoPlist.strings in Resources */,
+				4A28056719EDC0E60042BE95 /* ADBMobileConfig.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,7 +256,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A28056119ED717F0042BE95 /* AsToObjC.m in Sources */,
-				4AA818AB19E5BDF400CB44E4 /* TrackingHelper.m in Sources */,
 				4A90629719E4487700E11030 /* analytics.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,7 +264,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AA818AC19E5BDF400CB44E4 /* TrackingHelper.m in Sources */,
 				4A9062AC19E4487700E11030 /* analyticsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,6 +410,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/analytics/ADMS_AppLibrary",
+					"$(PROJECT_DIR)/AdobeMobileLibrary",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
@@ -450,6 +431,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/analytics/ADMS_AppLibrary",
+					"$(PROJECT_DIR)/AdobeMobileLibrary",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;

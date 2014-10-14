@@ -17,7 +17,7 @@ NSString* FREObjectToNSString(FREObject* stringObj)
     return stringObjC;
 }
 
-NSArray* FREObjectToArryOfNSString(FREObject* stringObj, UInt32 numOfItems)
+NSArray* FREObjectToArrayOfNSString(FREObject* stringObj, UInt32 numOfItems)
 {
     NSMutableArray *mutableArray = [[NSMutableArray alloc] init];
     
