@@ -60,6 +60,8 @@ echo "Extract library from ANE SWC"
 echo -e "\033[0m"
 unzip $ANE_HOME/build/$NAME.swc -d $ANE_HOME/build/temp/
 cp $ANE_HOME/build/temp/library.swf $ANE_HOME/build/ios/
+cp $ANE_HOME/resources/*.json $ANE_HOME/build/ios
+cp $ANE_HOME/resources/*.json $ANE_HOME/build/default
 rm -rf $ANE_HOME/build/temp/*
 
 echo -e "\033[36m"

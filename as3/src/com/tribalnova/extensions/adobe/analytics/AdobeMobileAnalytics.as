@@ -3,12 +3,17 @@ package com.tribalnova.extensions.adobe.analytics
 	import flash.events.EventDispatcher;
 	import flash.events.StatusEvent;
 	import flash.external.ExtensionContext;
+	import flash.utils.Dictionary;
 	
 	public class AdobeMobileAnalytics extends EventDispatcher
 	{
 		private static var _instance:AdobeMobileAnalytics;
 		
 		private var _extContext:ExtensionContext;
+		
+		public const ADBMOBILE_PPRIVACYSTATUS_OPTIN:uint = 1;
+		public const ADBMOBILE_PPRIVACYSTATUS_OPTOUT:uint = 2;
+		public const ADBMOBILE_PPRIVACYSTATUS_UNKNOWN:uint = 3;
 		
 		public function AdobeMobileAnalytics( enforcer:SingletonEnforcer )
 		{
@@ -51,15 +56,42 @@ package com.tribalnova.extensions.adobe.analytics
 			return _extContext.call( "helloWorld" ) as String;
 		}
 		
-		public function helloYou():void
+		public function get version():String
 		{
-			_extContext.call( "helloYou" );
+			return _extContext.call( "version" ) as String;
 		}
 		
-		public function getStringFromAS3(state:String):void
+		public function get privacyStatus():Number
 		{
-			_extContext.call( "getStringFromAS3", state );
+			return _extContext.call( "privacyStatus" ) as Number;
 		}
+		
+		public function set privacyStatus(value:Number):void
+		{
+			if(value != ADBMOBILE_PPRIVACYSTATUS_OPTIN && value != ADBMOBILE_PPRIVACYSTATUS_OPTOUT && value != ADBMOBILE_PPRIVACYSTATUS_UNKNOWN)
+				throw "privacyStatus value must be 1, 2 or 3 (OptIn, OptOut, Unknown)";
+			
+			_extContext.call( "setPrivacyStatus", value );
+		}
+		
+		public function trackState(trackState:String, contextData:Object):void
+		{
+			var keyList:Array = extractKeysFromObj(contextData);
+			trace("AS3 keyList: "+keyList);
+			_extContext.call( "trackState", trackState, contextData, keyList); 	
+		}
+		
+		
+		private function extractKeysFromObj(dict:Object):Array
+		{
+			var keyList:Array = [];
+			for(var key:String in dict)
+			{
+				keyList.push(key);
+			}
+			return keyList;
+		}
+		
 	}
 }
 
