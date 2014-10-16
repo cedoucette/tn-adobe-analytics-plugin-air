@@ -7,7 +7,7 @@
 //
 
 #import "analytics.h"
-#import "AsToObjC.m"
+#include "ADBMobileToAS3.m"
 
 @implementation analytics
 
@@ -19,22 +19,32 @@ void AdobeMobileAnalyticsContextInitializer(void* extData, const uint8_t* ctxTyp
     
     NSLog(@"Entering ContextInitializer()");
     
-	*numFunctionsToTest = 3;
-	FRENamedFunction* func = (FRENamedFunction*)malloc(sizeof(FRENamedFunction) * 1);
+	*numFunctionsToTest = 5;
+	FRENamedFunction* func = (FRENamedFunction*)malloc(sizeof(FRENamedFunction) * *numFunctionsToTest);
+    
+    //addFREfunctionToArray(func, @"helloWorld", &helloWorld, NULL);
     
 	func[0].name = (const uint8_t*)"helloWorld";
 	func[0].functionData = NULL;
 	func[0].function = &helloWorld;
     
-    func[1].name = (const uint8_t*)"helloYou";
+    func[1].name = (const uint8_t*)"version";
 	func[1].functionData = NULL;
-	func[1].function = &helloYou;
+	func[1].function = &version;
     
-    func[1].name = (const uint8_t*)"getStringFromAS3";
-	func[1].functionData = NULL;
-	func[1].function = &getStringFromAS3;
+    func[2].name = (const uint8_t*)"privacyStatus";
+	func[2].functionData = NULL;
+	func[2].function = &privacyStatus;
     
-	*functionsToSet = func;
+    func[3].name = (const uint8_t*)"setPrivacyStatus";
+	func[3].functionData = NULL;
+	func[3].function = &setPrivacyStatus;
+    
+    func[4].name = (const uint8_t*)"trackState";
+	func[4].functionData = NULL;
+	func[4].function = &trackState;
+    
+    *functionsToSet = func;
     
     NSLog(@"Exiting ContextInitializer()");
 }
@@ -100,12 +110,6 @@ FREObject helloWorld(FREContext ctx, void* funcData, uint32_t argc, FREObject ar
     return NSStringToFREObject(helloString);
 }
 
-FREObject helloYou(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[])
-{
-    NSLog(@"Entering helloYou()");
-    return nil;
-}
-
 FREObject getStringFromAS3(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[])
 {
     NSString* string1 = FREObjectToNSString(argv[0]);
@@ -117,5 +121,6 @@ FREObject getStringFromAS3(FREContext ctx, void* funcData, uint32_t argc, FREObj
     
     return nil;
 }
+
 
 @end

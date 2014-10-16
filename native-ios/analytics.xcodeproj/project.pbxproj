@@ -19,6 +19,10 @@
 		4A9062A419E4487700E11030 /* libanalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A90628C19E4487700E11030 /* libanalytics.a */; };
 		4A9062AA19E4487700E11030 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A9062A819E4487700E11030 /* InfoPlist.strings */; };
 		4A9062AC19E4487700E11030 /* analyticsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9062AB19E4487700E11030 /* analyticsTests.m */; };
+		4A915B1019EDD0C700574BD2 /* AdobeMobileLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A28056619EDC0E60042BE95 /* AdobeMobileLibrary.a */; settings = {ATTRIBUTES = (Required, ); }; };
+		4A915B1219EED25100574BD2 /* ADBMobileToAS3.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A915B1119EED25100574BD2 /* ADBMobileToAS3.m */; };
+		4AF356BB19F06ACD005E3DBF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF356BA19F06ACD005E3DBF /* SystemConfiguration.framework */; };
+		4AF356BF19F06CE4005E3DBF /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF356B819F06AC5005E3DBF /* libsqlite3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +65,10 @@
 		4A9062A919E4487700E11030 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4A9062AB19E4487700E11030 /* analyticsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = analyticsTests.m; sourceTree = "<group>"; };
 		4A9062B519E4491A00E11030 /* FlashRuntimeExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlashRuntimeExtensions.h; sourceTree = "<group>"; };
+		4A915B1119EED25100574BD2 /* ADBMobileToAS3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADBMobileToAS3.m; sourceTree = "<group>"; };
+		4AF356B819F06AC5005E3DBF /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		4AF356BA19F06ACD005E3DBF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		4AF356BD19F06BDC005E3DBF /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +76,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AF356BF19F06CE4005E3DBF /* libsqlite3.dylib in Frameworks */,
 				4A90629019E4487700E11030 /* Foundation.framework in Frameworks */,
+				4AF356BB19F06ACD005E3DBF /* SystemConfiguration.framework in Frameworks */,
+				4A915B1019EDD0C700574BD2 /* AdobeMobileLibrary.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +140,9 @@
 		4A90628E19E4487700E11030 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4AF356BD19F06BDC005E3DBF /* libsqlite3.0.dylib */,
+				4AF356BA19F06ACD005E3DBF /* SystemConfiguration.framework */,
+				4AF356B819F06AC5005E3DBF /* libsqlite3.dylib */,
 				4A90628F19E4487700E11030 /* Foundation.framework */,
 				4A90629D19E4487700E11030 /* XCTest.framework */,
 				4A9062A019E4487700E11030 /* UIKit.framework */,
@@ -143,6 +157,7 @@
 				4A90629419E4487700E11030 /* analytics.h */,
 				4A90629619E4487700E11030 /* analytics.m */,
 				4A90629219E4487700E11030 /* Supporting Files */,
+				4A915B1119EED25100574BD2 /* ADBMobileToAS3.m */,
 			);
 			path = analytics;
 			sourceTree = "<group>";
@@ -257,6 +272,7 @@
 			files = (
 				4A28056119ED717F0042BE95 /* AsToObjC.m in Sources */,
 				4A90629719E4487700E11030 /* analytics.m in Sources */,
+				4A915B1219EED25100574BD2 /* ADBMobileToAS3.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,9 +383,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/analytics/ADMS_AppLibrary",
+					"$(PROJECT_DIR)/AdobeMobileLibrary",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				SKIP_INSTALL = YES;
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
@@ -384,9 +402,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/analytics/ADMS_AppLibrary",
+					"$(PROJECT_DIR)/AdobeMobileLibrary",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				SKIP_INSTALL = YES;
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};

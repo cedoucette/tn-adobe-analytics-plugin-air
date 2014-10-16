@@ -1,26 +1,30 @@
 {
-    "version" : "1.0",
-    "analytics" : {
-        "rsids" : "",
-        "server" : "",
-        "charset" : "UTF-8",
-        "ssl" : false,
-		"offlineEnabled" : false,
-        "lifecycleTimeout" : 300,
-		"referrerTimeout" : 0,
-        "batchLimit" : 0,
-        "privacyDefault" : "optedin",
-		"poi" : []
+    "version": "2014-09-15T20:32:47.936Z",
+    "analytics": {
+        "rsids": "hmhtribaltestApp",
+        "server": "hmhbooks.d1.sc.omtrdc.net",
+        "ssl": false,
+        "offlineEnabled": true,
+        "charset": "UTF-8",
+        "lifecycleTimeout": 300,
+        "privacyDefault": "optedin",
+        "batchLimit": 0,
+        "timezone": "EDT",
+        "timezoneOffset": -240,
+        "referrerTimeout": 0,
+        "poi": [
+        
+        ]
     },
-	"target" : {
-		"clientCode" : "",
-		"timeout" : 5
-	},
-	"audienceManager" : {
-		"server" : ""
-	},
-	"acquisition" : {
-		"server" : "",
-		"appid" : ""
-	}
+    "target": {
+        "clientCode": "",
+        "timeout": 5
+    },
+    "audienceManager": {
+        "server": ""
+    },
+    "acquisition": {
+        "server": "c00.adobe.com",
+        "appid": "558c1122c0912b550f33a9c17461859b699d8c7b3904143b8808827110d491dd"
+    }
 }
