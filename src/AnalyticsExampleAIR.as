@@ -3,12 +3,14 @@ package
 	import com.tribalnova.extensions.adobe.analytics.AdobeMobileAnalytics;
 	
 	import flash.display.Sprite;
+	import flash.events.MouseEvent;
 	import flash.text.TextField;
 	
 	public class AnalyticsExampleAIR extends Sprite
 	{
 		protected var _tf:TextField;
 		protected var _ane:AdobeMobileAnalytics;
+		private var _sp:Sprite;
 		
 		public function AnalyticsExampleAIR()
 		{
@@ -34,6 +36,43 @@ package
 						+ '\n\n\t'
 						+ String(_ane.privacyStatus);
 			addChild( _tf );
+			
+			_sp = new Sprite();
+			_sp.graphics.beginFill(0xFF0000, 1);
+			_sp.graphics.drawRoundRect(0, 0, 100, 50, 20);
+			_sp.graphics.endFill();
+			_sp.x = stage.stageWidth - (_sp.width + 10);
+			_sp.y = 20;
+			_sp.addEventListener(MouseEvent.MOUSE_DOWN, onDown);
+			_sp.addEventListener(MouseEvent.MOUSE_UP, onUp);
+			_sp.addEventListener(MouseEvent.CLICK, onClick);
+			
+			
+			addChild(_sp);
+			
 		}
+		
+		protected function onClick(event:MouseEvent):void
+		{
+			var obj:Object = { "clicky1": "one", "clicky2": "two", "clicky3": "three", "clicky4": "four" };
+			
+			_ane.trackAction("Button Click", obj);
+		}
+		
+		protected function onUp(event:MouseEvent):void
+		{
+			_sp.graphics.beginFill(0xFF0000, 1);
+			_sp.graphics.drawRoundRect(0, 0, 100, 50, 20);
+			_sp.graphics.endFill();
+		}
+		
+		protected function onDown(event:MouseEvent):void
+		{
+			_sp.graphics.beginFill(0x00FF00, 1);
+			_sp.graphics.drawRoundRect(0, 0, 100, 50, 20);
+			_sp.graphics.endFill();
+			
+		}		
+		
 	}
 }
