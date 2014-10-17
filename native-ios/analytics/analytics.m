@@ -19,7 +19,7 @@ void AdobeMobileAnalyticsContextInitializer(void* extData, const uint8_t* ctxTyp
     
     NSLog(@"Entering ContextInitializer()");
     
-	*numFunctionsToTest = 6;
+	*numFunctionsToTest = 17;
 	FRENamedFunction* func = (FRENamedFunction*)malloc(sizeof(FRENamedFunction) * *numFunctionsToTest);
     
     //addFREfunctionToArray(func, @"helloWorld", &helloWorld, NULL);
@@ -47,6 +47,48 @@ void AdobeMobileAnalyticsContextInitializer(void* extData, const uint8_t* ctxTyp
     func[5].name = (const uint8_t*)"trackAction";
 	func[5].functionData = NULL;
 	func[5].function = &trackAction;
+    
+    func[6].name = (const uint8_t*)"trackActionFromBackground";
+	func[6].functionData = NULL;
+	func[6].function = &trackActionFromBackground;
+    
+    func[7].name = (const uint8_t*)"trackLifetimeValueIncrease";
+	func[7].functionData = NULL;
+	func[7].function = &trackLifetimeValueIncrease;
+    
+    func[8].name = (const uint8_t*)"trackTimedActionStart";
+	func[8].functionData = NULL;
+	func[8].function = &trackTimedActionStart;
+    
+    func[9].name = (const uint8_t*)"trackTimedActionUpdate";
+	func[9].functionData = NULL;
+	func[9].function = &trackTimedActionUpdate;
+    
+    func[10].name = (const uint8_t*)"trackTimedActionEnd";
+	func[10].functionData = NULL;
+	func[10].function = &trackTimedActionEnd;
+    
+    func[11].name = (const uint8_t*)"trackingTimedActionExists";
+	func[11].functionData = NULL;
+	func[11].function = &trackingTimedActionExists;
+    
+    func[12].name = (const uint8_t*)"trackingIdentifier";
+	func[13].functionData = NULL;
+	func[13].function = &trackingIdentifier;
+    
+    func[14].name = (const uint8_t*)"trackingSendQueuedHits";
+	func[14].functionData = NULL;
+	func[14].function = &trackingSendQueuedHits;
+    
+    func[15].name = (const uint8_t*)"trackingClearQueue";
+	func[15].functionData = NULL;
+	func[15].function = &trackingClearQueue;
+    
+    func[16].name = (const uint8_t*)"trackingGetQueueSize";
+	func[16].functionData = NULL;
+	func[16].function = &trackingGetQueueSize;
+    
+    
     
     
     *functionsToSet = func;
