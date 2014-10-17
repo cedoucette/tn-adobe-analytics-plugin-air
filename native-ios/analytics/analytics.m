@@ -19,7 +19,7 @@ void AdobeMobileAnalyticsContextInitializer(void* extData, const uint8_t* ctxTyp
     
     NSLog(@"Entering ContextInitializer()");
     
-	*numFunctionsToTest = 5;
+	*numFunctionsToTest = 6;
 	FRENamedFunction* func = (FRENamedFunction*)malloc(sizeof(FRENamedFunction) * *numFunctionsToTest);
     
     //addFREfunctionToArray(func, @"helloWorld", &helloWorld, NULL);
@@ -43,6 +43,11 @@ void AdobeMobileAnalyticsContextInitializer(void* extData, const uint8_t* ctxTyp
     func[4].name = (const uint8_t*)"trackState";
 	func[4].functionData = NULL;
 	func[4].function = &trackState;
+    
+    func[5].name = (const uint8_t*)"trackAction";
+	func[5].functionData = NULL;
+	func[5].function = &trackAction;
+    
     
     *functionsToSet = func;
     

@@ -85,9 +85,9 @@ FREObject collectLifecycleData(FREContext ctx, void* funcData, uint32_t argc, FR
 FREObject trackState(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[])
 {
     
-    //argv[0] : is the trackstate
-    //argv[1] : is the Object (Dictionary) sent by AS3
-    //argv[2] : is the list of keys for the object in argv[1]
+    //argv[0] :   the trackstate (String)
+    //argv[1] :   the Object (Dictionary) sent by AS3
+    //argv[2] :   the list of keys for the object in argv[1] (Array of strings)
     
     FREObject trackedState = argv[0];
     FREObject dictionary = argv[1];
@@ -109,9 +109,9 @@ FREObject trackState(FREContext ctx, void* funcData, uint32_t argc, FREObject ar
 FREObject trackAction(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[])
 {
     
-    //argv[0] : is the trackaction
-    //argv[1] : is the Object (Dictionary) sent by AS3
-    //argv[2] : is the list of keys for the object in argv[1]
+    //argv[0] :   the trackaction (String)
+    //argv[1] :   the Object (Dictionary) sent by AS3
+    //argv[2] :   the list of keys for the object in argv[1] (Array of strings)
     
     FREObject trackedAction = argv[0];
     FREObject dictionary = argv[1];
@@ -133,9 +133,9 @@ FREObject trackAction(FREContext ctx, void* funcData, uint32_t argc, FREObject a
 FREObject trackActionFromBackground(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[])
 {
     
-    //argv[0] : is the trackaction
-    //argv[1] : is the Object (Dictionary) sent by AS3
-    //argv[2] : is the list of keys for the object in argv[1]
+    //argv[0] :   the trackaction (String)
+    //argv[1] :   the Object (Dictionary) sent by AS3
+    //argv[2] :   the list of keys for the object in argv[1] (Array of strings)
     
     FREObject trackedAction = argv[0];
     FREObject dictionary = argv[1];
@@ -155,6 +155,12 @@ FREObject trackActionFromBackground(FREContext ctx, void* funcData, uint32_t arg
 }
 
 
+FREObject trackLocation(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[])
+{
+    
+    //argv[0] : the
+    
+}
 
 
 

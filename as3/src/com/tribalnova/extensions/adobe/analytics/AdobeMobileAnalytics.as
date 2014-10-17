@@ -81,6 +81,14 @@ package com.tribalnova.extensions.adobe.analytics
 			_extContext.call( "trackState", trackState, contextData, keyList); 	
 		}
 		
+		public function trackAction(trackAction:String, contextData:Object):void
+		{
+			var keyList:Array = extractKeysFromObj(contextData);
+			trace("AS3 keyList: "+keyList);
+			_extContext.call( "trackAction", trackAction, contextData, keyList);	
+		}
+		
+		
 		
 		private function extractKeysFromObj(dict:Object):Array
 		{
