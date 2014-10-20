@@ -6,9 +6,7 @@
 //
 //
 
-#import <Foundation/Foundation.h>
-#import "FlashRuntimeExtensions.h"
-#import "ADBMobile.h"
+#import "ADBMobileToAS3.h"
 
 @interface analytics : NSObject
 /* ExtInitializer()
@@ -38,19 +36,5 @@ FREObject helloYou(FREContext ctx, void* funcData, uint32_t argc, FREObject argv
  Example function to get a string from AS3
  */
 FREObject getStringFromAS3(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
-
-/*
-+ (void) trackActionWithProductInfo:(NSString *)action data:(NSString *)data;
-+ (void) trackState:(NSString *)state data:(NSDictionary *)data;
-
-+ (void) trackTimedActionStart:(NSString *)action data:(NSDictionary *)data;
-+ (void) trackTimedActionStart:(NSString *)action info:(NSString *)info;
-
-+ (void) trackTimedActionUpdate:(NSString *)action data:(NSDictionary *)data;
-+ (void) trackTimedActionUpdate:(NSString *)action info:(NSString *)info;
-
-+ (void) trackTimedActionEnd:(NSString *)action data:(NSDictionary *)productData;
-+ (void) trackTimedActionEnd:(NSString *)action info:(NSString *)info;
-*/
 
 @end

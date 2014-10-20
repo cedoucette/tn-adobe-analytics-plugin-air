@@ -7,7 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4A28056119ED717F0042BE95 /* AsToObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A28056019ED717F0042BE95 /* AsToObjC.m */; };
+		4A27C72B19F55DC600FBAFCE /* ADBMobileToAS3.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A27C72A19F55DC600FBAFCE /* ADBMobileToAS3.m */; };
+		4A27C73019F55E1100FBAFCE /* ADBMobileToAS3_Analytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A27C72F19F55E1100FBAFCE /* ADBMobileToAS3_Analytics.m */; };
+		4A27C73619F55EE400FBAFCE /* AsToObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A27C73519F55EE400FBAFCE /* AsToObjC.m */; };
+		4A27C73719F55EE400FBAFCE /* AsToObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A27C73519F55EE400FBAFCE /* AsToObjC.m */; };
+		4A27C73A19F5609C00FBAFCE /* ADBMobileToAS3_Configuration.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A27C73919F5609C00FBAFCE /* ADBMobileToAS3_Configuration.m */; };
+		4A27C73B19F5609C00FBAFCE /* ADBMobileToAS3_Configuration.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A27C73919F5609C00FBAFCE /* ADBMobileToAS3_Configuration.m */; };
+		4A27C73D19F5666800FBAFCE /* ADBMobileToAS3_Media.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A27C73C19F5666800FBAFCE /* ADBMobileToAS3_Media.m */; };
+		4A27C73E19F5666800FBAFCE /* ADBMobileToAS3_Media.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A27C73C19F5666800FBAFCE /* ADBMobileToAS3_Media.m */; };
 		4A28056719EDC0E60042BE95 /* ADBMobileConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A28056519EDC0E60042BE95 /* ADBMobileConfig.json */; };
 		4A28056819EDC0E60042BE95 /* AdobeMobileLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A28056619EDC0E60042BE95 /* AdobeMobileLibrary.a */; };
 		4A90629019E4487700E11030 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A90628F19E4487700E11030 /* Foundation.framework */; };
@@ -20,7 +27,6 @@
 		4A9062AA19E4487700E11030 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A9062A819E4487700E11030 /* InfoPlist.strings */; };
 		4A9062AC19E4487700E11030 /* analyticsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9062AB19E4487700E11030 /* analyticsTests.m */; };
 		4A915B1019EDD0C700574BD2 /* AdobeMobileLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A28056619EDC0E60042BE95 /* AdobeMobileLibrary.a */; settings = {ATTRIBUTES = (Required, ); }; };
-		4A915B1219EED25100574BD2 /* ADBMobileToAS3.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A915B1119EED25100574BD2 /* ADBMobileToAS3.m */; };
 		4AF356BB19F06ACD005E3DBF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF356BA19F06ACD005E3DBF /* SystemConfiguration.framework */; };
 		4AF356BF19F06CE4005E3DBF /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF356B819F06AC5005E3DBF /* libsqlite3.dylib */; };
 /* End PBXBuildFile section */
@@ -49,7 +55,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4A28056019ED717F0042BE95 /* AsToObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsToObjC.m; path = analytics/AsToObjC.m; sourceTree = "<group>"; };
+		4A27C72919F55DC600FBAFCE /* ADBMobileToAS3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADBMobileToAS3.h; sourceTree = "<group>"; };
+		4A27C72A19F55DC600FBAFCE /* ADBMobileToAS3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADBMobileToAS3.m; sourceTree = "<group>"; };
+		4A27C72F19F55E1100FBAFCE /* ADBMobileToAS3_Analytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADBMobileToAS3_Analytics.m; sourceTree = "<group>"; };
+		4A27C73519F55EE400FBAFCE /* AsToObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsToObjC.m; sourceTree = "<group>"; };
+		4A27C73819F55F1200FBAFCE /* AsToObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsToObjC.h; sourceTree = "<group>"; };
+		4A27C73919F5609C00FBAFCE /* ADBMobileToAS3_Configuration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADBMobileToAS3_Configuration.m; sourceTree = "<group>"; };
+		4A27C73C19F5666800FBAFCE /* ADBMobileToAS3_Media.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADBMobileToAS3_Media.m; sourceTree = "<group>"; };
 		4A28056419EDC0E60042BE95 /* ADBMobile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADBMobile.h; sourceTree = "<group>"; };
 		4A28056519EDC0E60042BE95 /* ADBMobileConfig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ADBMobileConfig.json; sourceTree = "<group>"; };
 		4A28056619EDC0E60042BE95 /* AdobeMobileLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = AdobeMobileLibrary.a; sourceTree = "<group>"; };
@@ -65,7 +77,6 @@
 		4A9062A919E4487700E11030 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4A9062AB19E4487700E11030 /* analyticsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = analyticsTests.m; sourceTree = "<group>"; };
 		4A9062B519E4491A00E11030 /* FlashRuntimeExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlashRuntimeExtensions.h; sourceTree = "<group>"; };
-		4A915B1119EED25100574BD2 /* ADBMobileToAS3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADBMobileToAS3.m; sourceTree = "<group>"; };
 		4AF356B819F06AC5005E3DBF /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		4AF356BA19F06ACD005E3DBF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4AF356BD19F06BDC005E3DBF /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
@@ -98,13 +109,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4A28056219ED71900042BE95 /* Utils */ = {
+		4A27C72819F55DC600FBAFCE /* ADBMobileToAS3 */ = {
 			isa = PBXGroup;
 			children = (
-				4A28056019ED717F0042BE95 /* AsToObjC.m */,
+				4A27C72919F55DC600FBAFCE /* ADBMobileToAS3.h */,
+				4A27C72A19F55DC600FBAFCE /* ADBMobileToAS3.m */,
+				4A27C72F19F55E1100FBAFCE /* ADBMobileToAS3_Analytics.m */,
+				4A27C73919F5609C00FBAFCE /* ADBMobileToAS3_Configuration.m */,
+				4A27C73C19F5666800FBAFCE /* ADBMobileToAS3_Media.m */,
 			);
-			name = Utils;
-			path = ..;
+			path = ADBMobileToAS3;
+			sourceTree = "<group>";
+		};
+		4A27C73119F55E8900FBAFCE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				4A27C73519F55EE400FBAFCE /* AsToObjC.m */,
+				4A27C73819F55F1200FBAFCE /* AsToObjC.h */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		4A28056319EDC0E60042BE95 /* AdobeMobileLibrary */ = {
@@ -153,11 +176,11 @@
 		4A90629119E4487700E11030 /* analytics */ = {
 			isa = PBXGroup;
 			children = (
-				4A28056219ED71900042BE95 /* Utils */,
+				4A27C72819F55DC600FBAFCE /* ADBMobileToAS3 */,
 				4A90629419E4487700E11030 /* analytics.h */,
 				4A90629619E4487700E11030 /* analytics.m */,
+				4A27C73119F55E8900FBAFCE /* Utils */,
 				4A90629219E4487700E11030 /* Supporting Files */,
-				4A915B1119EED25100574BD2 /* ADBMobileToAS3.m */,
 			);
 			path = analytics;
 			sourceTree = "<group>";
@@ -270,9 +293,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A28056119ED717F0042BE95 /* AsToObjC.m in Sources */,
+				4A27C73019F55E1100FBAFCE /* ADBMobileToAS3_Analytics.m in Sources */,
 				4A90629719E4487700E11030 /* analytics.m in Sources */,
-				4A915B1219EED25100574BD2 /* ADBMobileToAS3.m in Sources */,
+				4A27C73A19F5609C00FBAFCE /* ADBMobileToAS3_Configuration.m in Sources */,
+				4A27C73D19F5666800FBAFCE /* ADBMobileToAS3_Media.m in Sources */,
+				4A27C73619F55EE400FBAFCE /* AsToObjC.m in Sources */,
+				4A27C72B19F55DC600FBAFCE /* ADBMobileToAS3.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +306,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A27C73719F55EE400FBAFCE /* AsToObjC.m in Sources */,
+				4A27C73E19F5666800FBAFCE /* ADBMobileToAS3_Media.m in Sources */,
+				4A27C73B19F5609C00FBAFCE /* ADBMobileToAS3_Configuration.m in Sources */,
 				4A9062AC19E4487700E11030 /* analyticsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,7 +7,7 @@
 //
 
 #import "analytics.h"
-#include "ADBMobileToAS3.m"
+#import "AsToObjC.h"
 
 @implementation analytics
 
@@ -19,7 +19,7 @@ void AdobeMobileAnalyticsContextInitializer(void* extData, const uint8_t* ctxTyp
     
     NSLog(@"Entering ContextInitializer()");
     
-	*numFunctionsToTest = 17;
+	*numFunctionsToTest = 26;
 	FRENamedFunction* func = (FRENamedFunction*)malloc(sizeof(FRENamedFunction) * *numFunctionsToTest);
     
     //addFREfunctionToArray(func, @"helloWorld", &helloWorld, NULL);
@@ -88,7 +88,41 @@ void AdobeMobileAnalyticsContextInitializer(void* extData, const uint8_t* ctxTyp
 	func[16].functionData = NULL;
 	func[16].function = &trackingGetQueueSize;
     
+    func[17].name = (const uint8_t*)"mediaCreateSettingsWithName";
+	func[17].functionData = NULL;
+	func[17].function = &mediaCreateSettingsWithName;
     
+    func[18].name = (const uint8_t*)"mediaAdCreateSettingsWithName";
+	func[18].functionData = NULL;
+	func[18].function = &mediaAdCreateSettingsWithName;
+    
+    func[19].name = (const uint8_t*)"mediaOpenWithSettings";
+	func[19].functionData = NULL;
+	func[19].function = &mediaOpenWithSettings;
+    
+    func[20].name = (const uint8_t*)"mediaClose";
+	func[20].functionData = NULL;
+	func[20].function = &mediaClose;
+    
+    func[21].name = (const uint8_t*)"mediaPlay";
+	func[21].functionData = NULL;
+	func[21].function = &mediaPlay;
+    
+    func[22].name = (const uint8_t*)"mediaComplete";
+	func[22].functionData = NULL;
+	func[22].function = &mediaComplete;
+    
+    func[23].name = (const uint8_t*)"mediaStop";
+	func[23].functionData = NULL;
+	func[23].function = &mediaStop;
+    
+    func[24].name = (const uint8_t*)"mediaClick";
+	func[24].functionData = NULL;
+	func[24].function = &mediaClick;
+    
+    func[25].name = (const uint8_t*)"mediaTrack";
+	func[25].functionData = NULL;
+	func[25].function = &mediaTrack;
     
     
     *functionsToSet = func;
@@ -155,18 +189,6 @@ FREObject helloWorld(FREContext ctx, void* funcData, uint32_t argc, FREObject ar
     
     // Return data back to ActionScript
     return NSStringToFREObject(helloString);
-}
-
-FREObject getStringFromAS3(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[])
-{
-    NSString* string1 = FREObjectToNSString(argv[0]);
-    
-    //Log the result
-    NSLog(@"getStringFromAS3");
-    NSLog( @"%@", string1);
-    
-    
-    return nil;
 }
 
 
