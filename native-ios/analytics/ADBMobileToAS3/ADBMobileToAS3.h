@@ -58,4 +58,15 @@ FREObject mediaStop(FREContext ctx, void* funcData, uint32_t argc, FREObject arg
 FREObject mediaClick(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
 FREObject mediaTrack(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
 
+
+#pragma mark - Audience Manager
+/* TODO : Finish bridge
+FREObject audienceVisitorProfile(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
+FREObject audienceDpid(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
+FREObject audienceDpuuid(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
+FREObject audienceSetDpid(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
+FREObject audienceSignalWithData(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
+FREObject audienceReset(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
+*/
+
 //#endif
