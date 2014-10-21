@@ -18,13 +18,13 @@ package
 			
 			_ane = AdobeMobileAnalytics.instance;
 			
-			_ane.privacyStatus = _ane.ADBMOBILE_PPRIVACYSTATUS_OPTIN;
+			_ane.configuration.privacyStatus = _ane.configuration.ADBMOBILE_PPRIVACYSTATUS_OPTIN;
 			var dict:Object = new Object();
 			dict["a"] = "aa";
 			dict["b"] = "bb";
 			dict["c"] = "cc";
 			dict["d"] = "dd";
-			_ane.trackState("Starting State", dict);
+			_ane.analytics.trackState("Starting State", dict);
 			
 			_tf = new TextField();
 			_tf.height = stage.stageHeight;
@@ -32,9 +32,9 @@ package
 			_tf.text = 'The next line should say "Hello world" :\n\n\t'
 						+ _ane.helloWorld()
 						+ '\n\n\t'
-						+ _ane.version
+						+ _ane.configuration.version
 						+ '\n\n\t'
-						+ String(_ane.privacyStatus);
+						+ String(_ane.configuration.privacyStatus);
 			addChild( _tf );
 			
 			_sp = new Sprite();
@@ -56,7 +56,7 @@ package
 		{
 			var obj:Object = { "clicky1": "one", "clicky2": "two", "clicky3": "three", "clicky4": "four" };
 			
-			_ane.trackAction("Button Click", obj);
+			_ane.analytics.trackAction("Button Click", obj);
 		}
 		
 		protected function onUp(event:MouseEvent):void
