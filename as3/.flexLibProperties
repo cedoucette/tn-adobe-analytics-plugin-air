@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <flexLibProperties includeAllClasses="true" useMultiPlatformConfig="false" version="3">
   <includeClasses>
-    <classEntry path="com.tribalnova.extensions.adobe.analytics.AdobeMobileAnalytics"/>
+    <classEntry path="com.tribalnova.extensions.adobe.analytics.IADBMobileConfiguration"/>
+    <classEntry path="com.tribalnova.extensions.adobe.analytics.IADBMobileAnalytics"/>
+    <classEntry path="com.tribalnova.extensions.adobe.analytics.IADBMobileMediaAnalytics"/>
+    <classEntry path="com.tribalnova.extensions.adobe.analytics.impl.ADBMobileConfigurationImpl"/>
+    <classEntry path="com.tribalnova.extensions.adobe.analytics.impl.ADBMobileAnalyticsImpl"/>
+    <classEntry path="com.tribalnova.extensions.adobe.analytics.impl.ADBMobileMediaAnalyticsImpl"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

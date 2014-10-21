@@ -1,9 +1,12 @@
 package com.tribalnova.extensions.adobe.analytics
 {
+	import com.tribalnova.extensions.adobe.analytics.impl.ADBMobileAnalyticsImpl;
+	import com.tribalnova.extensions.adobe.analytics.impl.ADBMobileConfigurationImpl;
+	import com.tribalnova.extensions.adobe.analytics.impl.ADBMobileMediaAnalyticsImpl;
+	
 	import flash.events.EventDispatcher;
 	import flash.events.StatusEvent;
 	import flash.external.ExtensionContext;
-	import flash.utils.Dictionary;
 	
 	public class AdobeMobileAnalytics extends EventDispatcher
 	{
@@ -11,9 +14,9 @@ package com.tribalnova.extensions.adobe.analytics
 		
 		private var _extContext:ExtensionContext;
 		
-		public const ADBMOBILE_PPRIVACYSTATUS_OPTIN:uint = 1;
-		public const ADBMOBILE_PPRIVACYSTATUS_OPTOUT:uint = 2;
-		public const ADBMOBILE_PPRIVACYSTATUS_UNKNOWN:uint = 3;
+		private var _configuration:IADBMobileConfiguration;
+		private var _analytics:IADBMobileAnalytics;
+		private var _mediaAnalytics:IADBMobileMediaAnalytics;
 		
 		public function AdobeMobileAnalytics( enforcer:SingletonEnforcer )
 		{
@@ -27,7 +30,7 @@ package com.tribalnova.extensions.adobe.analytics
 			
 			_extContext.addEventListener( StatusEvent.STATUS, onStatus );
 		}
-		
+
 		public static function get instance():AdobeMobileAnalytics
 		{
 			if ( _instance == null )
@@ -48,58 +51,39 @@ package com.tribalnova.extensions.adobe.analytics
 		
 		private function init():void
 		{
-			// _extContext.call( "init" );
+			_configuration = new ADBMobileConfigurationImpl(_extContext);
+			_analytics = new ADBMobileAnalyticsImpl(_extContext);
+			_mediaAnalytics = new ADBMobileMediaAnalyticsImpl(_extContext);
+		}
+		
+		public function get mediaAnalytics():IADBMobileMediaAnalytics
+		{
+			if(_mediaAnalytics == null);
+				throw "ERROR : AdobeMobileAnalytics wasn't initialized properly";	
+			
+			return _mediaAnalytics;
+		}
+		
+		public function get analytics():IADBMobileAnalytics
+		{
+			if(_analytics == null)
+				throw "ERROR : AdobeMobileAnalytics wasn't initialized properly";
+			
+			return _analytics;
+		}
+		
+		public function get configuration():IADBMobileConfiguration
+		{
+			if(_configuration == null)
+				throw "ERROR : AdobeMobileAnalytics wasn't initialized properly";
+			
+			return _configuration;
 		}
 		
 		public function helloWorld():String
 		{
 			return _extContext.call( "helloWorld" ) as String;
 		}
-		
-		public function get version():String
-		{
-			return _extContext.call( "version" ) as String;
-		}
-		
-		public function get privacyStatus():Number
-		{
-			return _extContext.call( "privacyStatus" ) as Number;
-		}
-		
-		public function set privacyStatus(value:Number):void
-		{
-			if(value != ADBMOBILE_PPRIVACYSTATUS_OPTIN && value != ADBMOBILE_PPRIVACYSTATUS_OPTOUT && value != ADBMOBILE_PPRIVACYSTATUS_UNKNOWN)
-				throw "privacyStatus value must be 1, 2 or 3 (OptIn, OptOut, Unknown)";
-			
-			_extContext.call( "setPrivacyStatus", value );
-		}
-		
-		public function trackState(trackState:String, contextData:Object):void
-		{
-			var keyList:Array = extractKeysFromObj(contextData);
-			trace("AS3 keyList: "+keyList);
-			_extContext.call( "trackState", trackState, contextData, keyList); 	
-		}
-		
-		public function trackAction(trackAction:String, contextData:Object):void
-		{
-			var keyList:Array = extractKeysFromObj(contextData);
-			trace("AS3 keyList: "+keyList);
-			_extContext.call( "trackAction", trackAction, contextData, keyList);	
-		}
-		
-		
-		
-		private function extractKeysFromObj(dict:Object):Array
-		{
-			var keyList:Array = [];
-			for(var key:String in dict)
-			{
-				keyList.push(key);
-			}
-			return keyList;
-		}
-		
 	}
 }
 
