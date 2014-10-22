@@ -19,7 +19,7 @@ void AdobeMobileAnalyticsContextInitializer(void* extData, const uint8_t* ctxTyp
     
     NSLog(@"Entering ContextInitializer()");
     
-	*numFunctionsToTest = 32;
+	*numFunctionsToTest = 34;
 	FRENamedFunction* func = (FRENamedFunction*)malloc(sizeof(FRENamedFunction) * *numFunctionsToTest);
     
     uint32_t position = 0.0;
@@ -41,8 +41,8 @@ void AdobeMobileAnalyticsContextInitializer(void* extData, const uint8_t* ctxTyp
     position = addFREfunctionToArray(func, position, @"trackState", &trackState, NULL);
     position = addFREfunctionToArray(func, position, @"trackAction", &trackAction, NULL);
     position = addFREfunctionToArray(func, position, @"trackActionFromBackground", &trackActionFromBackground, NULL);
-    //position = addFREfunctionToArray(func, position, @"trackLocation", &trackLocation, NULL);
-    //position = addFREfunctionToArray(func, position, @"trackBeacon", &trackBeacon, NULL);
+    position = addFREfunctionToArray(func, position, @"trackLocation", &trackLocation, NULL);
+    position = addFREfunctionToArray(func, position, @"trackBeacon", &trackBeacon, NULL);
     //position = addFREfunctionToArray(func, position, @"trackingClearCurrentBeacon", &trackingClearCurrentBeacon, NULL);
     position = addFREfunctionToArray(func, position, @"trackLifetimeValueIncrease", &trackLifetimeValueIncrease, NULL);
     position = addFREfunctionToArray(func, position, @"trackTimedActionStart", &trackTimedActionStart, NULL);

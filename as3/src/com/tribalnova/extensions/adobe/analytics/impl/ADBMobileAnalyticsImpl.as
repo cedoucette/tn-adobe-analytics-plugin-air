@@ -17,49 +17,43 @@ package com.tribalnova.extensions.adobe.analytics.impl
 		public function trackState(trackState:String, context:Object):void
 		{
 			var keyList:Array = extractKeysFromObj(context);
-			trace("AS3 keyList: "+keyList);
 			_extContext.call( "trackState", trackState, context, keyList); 	
 		}
 		
 		public function trackAction(trackAction:String, context:Object):void
 		{
 			var keyList:Array = extractKeysFromObj(context);
-			trace("AS3 keyList: "+keyList);
+		
 			_extContext.call( "trackAction", trackAction, context, keyList);
 		}
 		
 		public function trackActionFromBackground(action:String, context:Object):void
 		{
 			var keyList:Array = extractKeysFromObj(context);
-			trace("AS3 keyList: "+keyList);
 			_extContext.call( "trackActionFromBackground", trackAction, context, keyList);
 		}
 		
 		public function trackLifetimeValueIncrease(amount:Number, context:Object):void
 		{
 			var keyList:Array = extractKeysFromObj(context);
-			trace("AS3 keyList: "+keyList);
 			_extContext.call( "trackLifetimeValueIncrease", amount, context, keyList);
 		}
 		
 		public function trackTimedActionStart(action:String, context:Object):void
 		{
 			var keyList:Array = extractKeysFromObj(context);
-			trace("AS3 keyList: "+keyList);
 			_extContext.call( "trackTimedActionStart", action, context, keyList);
 		}
 		
 		public function trackTimedActionUpdate(action:String, context:Object):void
 		{
 			var keyList:Array = extractKeysFromObj(context);
-			trace("AS3 keyList: "+keyList);
 			_extContext.call( "trackTimedActionUpdate", action, context, keyList);
 		}
 		
 		public function trackTimedActionEnd(action:String, context:Object):void
 		{
 			var keyList:Array = extractKeysFromObj(context);
-			trace("AS3 keyList: "+keyList);
 			_extContext.call( "trackTimedActionEnd", action, context, keyList);
 		}
 		
@@ -81,6 +75,12 @@ package com.tribalnova.extensions.adobe.analytics.impl
 		public function get trackingQueueSize():Number
 		{
 			return _extContext.call( "trackingGetQueueSize") as Number;
+		}
+		
+		public function trackLocation(context:Object):void
+		{
+			var keyList:Array = extractKeysFromObj(context);
+			_extContext.call( "trackLocation", context, keyList );
 		}
 		
 		private function extractKeysFromObj(dict:Object):Array

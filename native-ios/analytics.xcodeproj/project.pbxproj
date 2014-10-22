@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A10CD2119F7FFF8000597AA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A10CD2019F7FFF8000597AA /* CoreLocation.framework */; };
 		4A27C72B19F55DC600FBAFCE /* ADBMobileToAS3.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A27C72A19F55DC600FBAFCE /* ADBMobileToAS3.m */; };
 		4A27C73019F55E1100FBAFCE /* ADBMobileToAS3_Analytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A27C72F19F55E1100FBAFCE /* ADBMobileToAS3_Analytics.m */; };
 		4A27C73619F55EE400FBAFCE /* AsToObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A27C73519F55EE400FBAFCE /* AsToObjC.m */; };
@@ -57,6 +58,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4A10CD2019F7FFF8000597AA /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		4A27C72919F55DC600FBAFCE /* ADBMobileToAS3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADBMobileToAS3.h; sourceTree = "<group>"; };
 		4A27C72A19F55DC600FBAFCE /* ADBMobileToAS3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADBMobileToAS3.m; sourceTree = "<group>"; };
 		4A27C72F19F55E1100FBAFCE /* ADBMobileToAS3_Analytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADBMobileToAS3_Analytics.m; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A10CD2119F7FFF8000597AA /* CoreLocation.framework in Frameworks */,
 				4AF356BF19F06CE4005E3DBF /* libsqlite3.dylib in Frameworks */,
 				4A90629019E4487700E11030 /* Foundation.framework in Frameworks */,
 				4AF356BB19F06ACD005E3DBF /* SystemConfiguration.framework in Frameworks */,
@@ -167,6 +170,7 @@
 		4A90628E19E4487700E11030 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4A10CD2019F7FFF8000597AA /* CoreLocation.framework */,
 				4AF356BD19F06BDC005E3DBF /* libsqlite3.0.dylib */,
 				4AF356BA19F06ACD005E3DBF /* SystemConfiguration.framework */,
 				4AF356B819F06AC5005E3DBF /* libsqlite3.dylib */,

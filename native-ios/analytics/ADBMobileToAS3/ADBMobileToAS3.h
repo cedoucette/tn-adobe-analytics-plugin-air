@@ -32,8 +32,8 @@ FREObject collectLifecycleData(FREContext ctx, void* funcData, uint32_t argc, FR
 FREObject trackState(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
 FREObject trackAction(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
 FREObject trackActionFromBackground(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
-//TODO : FREObject trackLocation(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
-//TODO : FREObject trackBeacon(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
+FREObject trackLocation(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
+FREObject trackBeacon(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
 //TODO : FREObject trackingClearCurrentBeacon(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
 FREObject trackLifetimeValueIncrease(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
 FREObject trackTimedActionStart(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
