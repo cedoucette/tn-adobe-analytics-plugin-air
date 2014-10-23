@@ -43,7 +43,7 @@ package com.tribalnova.extensions.adobe.analytics.impl
 		
 		public function set userIdentifier(value:String):void
 		{
-			_extContext.call( "setUserIdentifier", value ) as String;
+			_extContext.call( "setUserIdentifier", value );
 		}
 		
 		public function get debugLogging():Boolean

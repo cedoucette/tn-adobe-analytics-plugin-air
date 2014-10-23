@@ -8,11 +8,17 @@ NSString* FREObjectToNSString(FREObject* stringObj)
     // To be filled
     uint32_t stringLength;
     const uint8_t *string;
+    
     //Read Data
     FREGetObjectAsUTF8(stringObj, &stringLength, &string);
     
+    //NSLog(@"FREObjectToNSString : str= %s", string);
+    //NSLog(@"FREObjectToNSString : (char*)string= %s", (char*)string);
+    
     // Convert C strings to Obj-C strings
     NSString *stringObjC = [NSString stringWithUTF8String:(char*)string];
+    
+    //NSLog(@"FREObjectToNSString : stringObjC= %@", stringObjC);
     
     return stringObjC;
 }
@@ -67,6 +73,8 @@ NSDictionary* FREObjectToDictionary(FREObject* dictionary, FREObject* dictionary
 
 FREObject* NSStringToFREObject(NSString* string)
 {
+    if(string == nil)
+        return nil;
     // Convert Obj-C string to C UTF8String
     const char *str = [string UTF8String];
     
@@ -180,79 +188,119 @@ ADBMediaSettings* FREObjectToADBMediaSettings(FREObject* settingsObj)
     //@property (nonatomic, strong) NSString *parentName; ///< The name or ID of the media item that the ad is embedded in.
     //@property (nonatomic, strong) NSString *parentPod;  ///< The position in the primary content the ad was played.
     
+    NSLog(@" Enter FREObjectToADBMediaSettings ");
+    if(settingsObj == nil)
+        NSLog(@" settingsObj is nil ");
+    else
+        NSLog(@" settingsObj is OK ");
+    
     ADBMediaSettings *settings = [[ADBMediaSettings alloc] init];
     
+    NSLog(@" get segmentByMilestones ");
     FREObject segmentByMilestonesObj;
-    FREGetObjectProperty(settingsObj, (const uint8_t*)"segmentByMilestones", segmentByMilestonesObj, nil);
+    NSLog(@" get property ");
+    FREGetObjectProperty(settingsObj, (const uint8_t*)"segmentByMilestones", &segmentByMilestonesObj, nil);
     uint32_t segmentByMilestones;
+    NSLog(@" convert property ");
     FREGetObjectAsBool(segmentByMilestonesObj, &segmentByMilestones);
+    NSLog(@" got segmentByMilestones %u", segmentByMilestones);
     
+    NSLog(@" get segmentByOffsetMilestones ");
     FREObject segmentByOffsetMilestonesObj;
-    FREGetObjectProperty(settingsObj, (const uint8_t*)"segmentByOffsetMilestones", segmentByOffsetMilestonesObj, nil);
+    FREGetObjectProperty(settingsObj, (const uint8_t*)"segmentByOffsetMilestones", &segmentByOffsetMilestonesObj, nil);
     uint32_t segmentByOffsetMilestones;
     FREGetObjectAsBool(segmentByMilestonesObj, &segmentByOffsetMilestones);
-
+    NSLog(@" got segmentByOffsetMilestones %u", segmentByOffsetMilestones);
+    
+    NSLog(@" get length ");
     FREObject lengthObj;
-    FREGetObjectProperty(settingsObj, (const uint8_t*)"length", lengthObj, nil);
+    FREGetObjectProperty(settingsObj, (const uint8_t*)"length", &lengthObj, nil);
     double length;
     FREGetObjectAsDouble(lengthObj, &length);
+    NSLog(@" got length %f", length);
     
+    NSLog(@" get channel ");
     FREObject channelObj;
-    FREGetObjectProperty(settingsObj, (const uint8_t*)"channel", channelObj, nil);
+    FREGetObjectProperty(settingsObj, (const uint8_t*)"channel", &channelObj, nil);
     NSString *channel = FREObjectToNSString(channelObj);
+    NSLog(@" got channel %@", channel);
     
+    NSLog(@" get name ");
     FREObject nameObj;
-    FREGetObjectProperty(settingsObj, (const uint8_t*)"name", nameObj, nil);
+    FREGetObjectProperty(settingsObj, (const uint8_t*)"name", &nameObj, nil);
     NSString *name = FREObjectToNSString(nameObj);
+    NSLog(@" got name %@", name);
     
+    NSLog(@" get playerName ");
     FREObject playerNameObj;
-    FREGetObjectProperty(settingsObj, (const uint8_t*)"playerName", playerNameObj, nil);
+    FREGetObjectProperty(settingsObj, (const uint8_t*)"playerName", &playerNameObj, nil);
     NSString *playerName = FREObjectToNSString(playerNameObj);
+    NSLog(@" got playerName %@", playerName);
     
+    NSLog(@" get playerID ");
     FREObject playerIDObj;
-    FREGetObjectProperty(settingsObj, (const uint8_t*)"playerID", playerIDObj, nil);
+    FREGetObjectProperty(settingsObj, (const uint8_t*)"playerID", &playerIDObj, nil);
     NSString *playerID = FREObjectToNSString(playerIDObj);
+    NSLog(@" got playerID %@", playerID);
     
+    NSLog(@" get milestones ");
     FREObject milestonesObj;
-    FREGetObjectProperty(settingsObj, (const uint8_t*)"milestones", milestonesObj, nil);
+    FREGetObjectProperty(settingsObj, (const uint8_t*)"milestones", &milestonesObj, nil);
     NSString *milestones = FREObjectToNSString(milestonesObj);
+    NSLog(@" got milestones %@", milestones);
     
+    NSLog(@" get offsetMilestones ");
     FREObject offsetMilestonesObj;
-    FREGetObjectProperty(settingsObj, (const uint8_t*)"offsetMilestones", offsetMilestonesObj, nil);
+    FREGetObjectProperty(settingsObj, (const uint8_t*)"offsetMilestones", &offsetMilestonesObj, nil);
     NSString *offsetMilestones = FREObjectToNSString(offsetMilestonesObj);
+    NSLog(@" got offsetMilestones %@", offsetMilestones);
 
+    NSLog(@" get trackSeconds ");
     FREObject trackSecondsObj;
-    FREGetObjectProperty(settingsObj, (const uint8_t*)"trackSeconds", trackSecondsObj, nil);
+    FREGetObjectProperty(settingsObj, (const uint8_t*)"trackSeconds", &trackSecondsObj, nil);
     uint32_t trackSeconds;
     FREGetObjectAsUint32(trackSecondsObj, &trackSeconds);
+    NSLog(@" got trackSeconds %u", trackSeconds);
 
+    NSLog(@" get completeCloseOffsetThreshold ");
     FREObject completeCloseOffsetThresholdObj;
-    FREGetObjectProperty(settingsObj, (const uint8_t*)"completeCloseOffsetThreshold", completeCloseOffsetThresholdObj, nil);
+    FREGetObjectProperty(settingsObj, (const uint8_t*)"completeCloseOffsetThreshold", &completeCloseOffsetThresholdObj, nil);
     uint32_t completeCloseOffsetThreshold;
     FREGetObjectAsUint32(completeCloseOffsetThresholdObj, &completeCloseOffsetThreshold);
+    NSLog(@" got completeCloseOffsetThreshold %u", completeCloseOffsetThreshold);
     
     //Ad parameters
+    NSLog(@" get isMediaAd ");
     FREObject isMediaAdObj;
-    FREGetObjectProperty(settingsObj, (const uint8_t*)"isMediaAd", isMediaAdObj, nil);
+    FREGetObjectProperty(settingsObj, (const uint8_t*)"isMediaAd", &isMediaAdObj, nil);
     uint32_t isMediaAd;
     FREGetObjectAsBool(isMediaAdObj, &isMediaAd);
+    NSLog(@" got isMediaAd %u", isMediaAd);
     
+    NSLog(@" get parentPodPosition ");
     FREObject parentPodPositionObj;
-    FREGetObjectProperty(settingsObj, (const uint8_t*)"parentPodPosition", parentPodPositionObj, nil);
+    FREGetObjectProperty(settingsObj, (const uint8_t*)"parentPodPosition", &parentPodPositionObj, nil);
     double parentPodPosition;
     FREGetObjectAsDouble(parentPodPositionObj, &parentPodPosition);
+    NSLog(@" got parentPodPosition %f", parentPodPosition);
     
+    NSLog(@" get CPM ");
     FREObject CPMObj;
-    FREGetObjectProperty(settingsObj, (const uint8_t*)"CPM", CPMObj, nil);
+    FREGetObjectProperty(settingsObj, (const uint8_t*)"CPM", &CPMObj, nil);
     NSString *CPM = FREObjectToNSString(CPMObj);
+    NSLog(@" got CPM %@", CPM);
     
+    NSLog(@" get parentName ");
     FREObject parentNameObj;
-    FREGetObjectProperty(settingsObj, (const uint8_t*)"parentName", parentNameObj, nil);
+    FREGetObjectProperty(settingsObj, (const uint8_t*)"parentName", &parentNameObj, nil);
     NSString *parentName = FREObjectToNSString(parentNameObj);
-    
+    NSLog(@" got parentName %@", parentName);
+
+    NSLog(@" get parentPod ");
     FREObject parentPodObj;
-    FREGetObjectProperty(settingsObj, (const uint8_t*)"parentPod", parentPodObj, nil);
+    FREGetObjectProperty(settingsObj, (const uint8_t*)"parentPod", &parentPodObj, nil);
     NSString *parentPod = FREObjectToNSString(parentPodObj);
+    NSLog(@" got parentPod %@", parentPod);
     
     [settings setSegmentByMilestones:segmentByMilestones];
     [settings setSegmentByOffsetMilestones:segmentByOffsetMilestones];
@@ -272,6 +320,7 @@ ADBMediaSettings* FREObjectToADBMediaSettings(FREObject* settingsObj)
     [settings setParentName:parentName];
     [settings setParentPod:parentPod];
     
+    NSLog(@" Settings set ");
     
-    return [settings copy];
+    return settings;
 }

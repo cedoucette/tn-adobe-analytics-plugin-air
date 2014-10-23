@@ -37,12 +37,13 @@ FREObject lifetimeValue(FREContext ctx, void* funcData, uint32_t argc, FREObject
 
 FREObject userIdentifier(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[])
 {
-    return NSStringToFREObject([ADBMobile userIdentifier]);
+    NSString *userID = [ADBMobile userIdentifier];
+    return NSStringToFREObject(userID);
 }
 
 FREObject setUserIdentifier(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[])
 {
-    NSString *userId = FREObjectToNSString(argv);
+    NSString *userId = FREObjectToNSString(argv[0]);
     [ADBMobile setUserIdentifier:userId];
     return nil;
 }

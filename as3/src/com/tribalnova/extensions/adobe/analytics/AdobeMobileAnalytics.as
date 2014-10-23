@@ -59,7 +59,7 @@ package com.tribalnova.extensions.adobe.analytics
 		public function get mediaAnalytics():IADBMobileMediaAnalytics
 		{
 			if(_mediaAnalytics == null);
-				throw "ERROR : AdobeMobileAnalytics wasn't initialized properly";	
+				_mediaAnalytics = new ADBMobileMediaAnalyticsImpl(_extContext);	
 			
 			return _mediaAnalytics;
 		}
@@ -67,7 +67,7 @@ package com.tribalnova.extensions.adobe.analytics
 		public function get analytics():IADBMobileAnalytics
 		{
 			if(_analytics == null)
-				throw "ERROR : AdobeMobileAnalytics wasn't initialized properly";
+				_analytics = new ADBMobileAnalyticsImpl(_extContext);
 			
 			return _analytics;
 		}
@@ -75,7 +75,7 @@ package com.tribalnova.extensions.adobe.analytics
 		public function get configuration():IADBMobileConfiguration
 		{
 			if(_configuration == null)
-				throw "ERROR : AdobeMobileAnalytics wasn't initialized properly";
+				_configuration = new ADBMobileConfigurationImpl(_extContext);
 			
 			return _configuration;
 		}
