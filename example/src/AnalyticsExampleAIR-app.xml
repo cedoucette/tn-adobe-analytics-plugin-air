@@ -293,6 +293,10 @@
 			<array>
 				<string>2</string>
 			</array>
+			<key>UIStatusBarStyle</key>
+                <string>UIStatusBarStyleDefault</string>
+            <key>UIRequiresPersistentWiFi</key>
+                <string>YES</string>
 		]]></InfoAdditions>
         <requestedDisplayResolution>high</requestedDisplayResolution>
     </iPhone>
