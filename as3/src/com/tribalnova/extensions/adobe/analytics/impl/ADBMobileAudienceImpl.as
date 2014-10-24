@@ -37,7 +37,7 @@ package com.tribalnova.extensions.adobe.analytics.impl
 		public function audienceSignalWithData(context:Object):void
 		{
 			var keyList:Array = ObjectUtils.extractKeysFromObj(context);
-			_extContext.call( "setAudienceDpid", context, keyList);
+			_extContext.call( "audienceSignalWithData", context, keyList);
 		}
 		
 		public function audienceReset():void
