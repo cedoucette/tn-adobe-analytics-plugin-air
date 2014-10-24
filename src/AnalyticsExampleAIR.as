@@ -37,13 +37,38 @@ package
 			removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			lifeTimevalue = ane.configuration.lifetimeValue;
 			addConfigGroup();
+			_gui.addGroup(" ");
+			_gui.addLabel("  ");
+			_gui.addLabel("  ");
+			_gui.addLabel("  ");
+			_gui.addLabel("  ");
+			_gui.addLabel("  ");
+			_gui.addLabel("  ");
+			_gui.addLabel("  ");
+			addAudienceGroup();
+			
 			_gui.addColumn();
 			_gui.addGroup("  ");
 			addAnalyticsGroup();
-			_gui.addColumn();
-			_gui.addGroup("  ");
-			addMediaAnalyticsGroup()
+			_gui.addGroup(" ");
+			_gui.addLabel("  ");
+			_gui.addLabel("");
+			addLocationGroup();
 			
+			_gui.addColumn();
+			_gui.addGroup(" ");
+			addMediaAnalyticsGroup()
+			_gui.addGroup();
+			_gui.addLabel("  ");
+			_gui.addLabel("  ");
+			_gui.addLabel("  ");
+			_gui.addLabel("  ");
+			_gui.addLabel("  ");
+			_gui.addLabel("  ");
+			_gui.addLabel("  ");
+			_gui.addLabel("  ");
+			
+			addTargetGroup();
 			_gui.show();
 			
 		}
@@ -52,12 +77,13 @@ package
 		{
 			//Media Analytics group
 			_gui.addGroup("Media Analytics");
+			_gui.addGroup();
 			_gui.addButton("Create Setting Named 'Doctor'", {	callback:onMediaSettings,
 																callbackParams: ['create', 'Doctor']
 															});
-			/*_gui.addButton("Create Ad Setting Named 'Amy'", {	callback:ane.mediaAnalytics.mediaAdCreateSettingsWithName,
+			_gui.addButton("Create Ad Setting Named 'Amy'", {	callback:ane.mediaAnalytics.mediaAdCreateSettingsWithName,
 				callbackParams: ['Amy', 10, 'AmyPlayer', 'Doctor', 'Tardis', 60 ,42]
-			});*/
+			});
 			_gui.addGroup();
 			_gui.addButton("Open Media from settings", {	callback:onMediaSettings,
 															callbackParams: ['open']
@@ -83,6 +109,8 @@ package
 			//Analytics group
 			_gui.addGroup("Analytics");
 			_gui.addGroup();
+			_gui.addLabel("trackingIdentifier : ");
+			_gui.addLabel(ane.analytics.trackingIdentifier);
 			_gui.addButton("Track State", {	callback:ane.analytics.trackState, 
 				callbackParams:["Hello State", { "clicky1": "one", "clicky2": "two", "clicky3": "three", "clicky4": "four" }]  
 			});
@@ -112,10 +140,7 @@ package
 			_gui.addStepper('ane.analytics.trackingQueueSize', ane.analytics.trackingQueueSize, ane.analytics.trackingQueueSize, {label:"Tracking Queue Size"});
 			_gui.addButton("Send Queued Hits", {callback:ane.analytics.trackingSendQueuedHits });
 			_gui.addButton("Clear Queue", {callback:ane.analytics.trackingClearQueue });
-			_gui.addGroup();
-			_gui.addButton("Track Location", {callback:ane.analytics.trackLocation, 
-				callbackParams:[{ "clicky1": "one", "clicky2": "two", "clicky3": "three", "clicky4": "four" }]  
-			});
+			
 		}
 		
 		private function addConfigGroup():void
@@ -123,7 +148,7 @@ package
 			//Config group
 			_gui.addGroup("Configuration");
 			_gui.addGroup();
-			_gui.addLabel("Version : "+ane.configuration.version);
+			_gui.addLabel("ADB Version : "+ane.configuration.version);
 			_gui.addStepper("lifeTimevalue", lifeTimevalue, lifeTimevalue + 50, { label: "Lifetime Value", callback:onIncreaseLifeTime });
 			_gui.addGroup();
 			var strA:String = generateRandomString(Math.floor(Math.random()*9 + 5));
@@ -149,6 +174,40 @@ package
 			_gui.addToggle("ane.configuration.debugLogging", {label: "Debug Logging"});
 			_gui.addButton("Collect Lifecycle Data", {callback:ane.configuration.collectLifecycleData});
 			_gui.addButton("Keep Lifecycle Session Alive", {callback:ane.configuration.keepLifecycleSessionAlive});
+		}
+		
+		
+		private function addAudienceGroup():void
+		{
+			
+			_gui.addGroup("Not Yet Implemented");
+			_gui.addGroup("Audience");
+			_gui.addButton("Visitor Profile");
+			_gui.addButton("DPID");
+			_gui.addButton("DPUUID");
+			_gui.addButton("Signal with Data");
+			_gui.addButton("Reset");
+			
+		}
+		
+		private function addTargetGroup():void
+		{
+			_gui.addGroup("Not Yet Implemented");
+			_gui.addGroup("Target");
+			_gui.addButton("Create Request");
+			_gui.addButton("Create Order Confirm Request");
+			_gui.addButton("Load Request");
+			_gui.addButton("Clear Cookies");
+		}
+		
+		private function addLocationGroup():void
+		{
+			_gui.addGroup("Not Yet Implemented");
+			
+			_gui.addGroup("Location");
+			_gui.addButton("Track Location");
+			_gui.addButton("Track Beacon");
+			_gui.addButton("Tracking Clear Beacon");
 		}
 		
 		private function onIncreaseLifeTime():void
