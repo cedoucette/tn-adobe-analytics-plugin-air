@@ -7,6 +7,9 @@
 
 FREObject audienceVisitorProfile(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[])
 {
+    
+    return nil;
+    
     NSDictionary *visitorProfile = [ADBMobile audienceVisitorProfile];
     
     NSLog(@"audienceVisitorProfile : %@", [visitorProfile description]);

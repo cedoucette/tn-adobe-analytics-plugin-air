@@ -32,9 +32,6 @@ FREObject collectLifecycleData(FREContext ctx, void* funcData, uint32_t argc, FR
 FREObject trackState(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
 FREObject trackAction(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
 FREObject trackActionFromBackground(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
-FREObject trackLocation(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
-FREObject trackBeacon(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
-//TODO : FREObject trackingClearCurrentBeacon(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
 FREObject trackLifetimeValueIncrease(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
 FREObject trackTimedActionStart(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
 FREObject trackTimedActionUpdate(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
@@ -58,15 +55,29 @@ FREObject mediaStop(FREContext ctx, void* funcData, uint32_t argc, FREObject arg
 FREObject mediaClick(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
 FREObject mediaTrack(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
 
+#pragma mark - Location
+/* TODO : Finish bridge */
+FREObject trackLocation(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
+FREObject trackBeacon(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
+FREObject trackingClearCurrentBeacon(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
+
 
 #pragma mark - Audience Manager
-/* TODO : Finish bridge
+/* TODO : Finish bridge */
 FREObject audienceVisitorProfile(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
 FREObject audienceDpid(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
 FREObject audienceDpuuid(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
 FREObject audienceSetDpid(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
 FREObject audienceSignalWithData(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
 FREObject audienceReset(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
-*/
+
+#pragma mark - Target
+/* TODO : Finish bridge */
+FREObject targetLoadRequest(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
+FREObject targetCreateRequestWithName(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
+FREObject targetCreateOrderConfirmRequestWithName(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
+FREObject targetClearCookies(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
+
+
 
 //#endif

@@ -19,7 +19,7 @@ void AdobeMobileAnalyticsContextInitializer(void* extData, const uint8_t* ctxTyp
     
     NSLog(@"Entering ContextInitializer()");
     
-	*numFunctionsToTest = 34;
+	*numFunctionsToTest = 44;
 	FRENamedFunction* func = (FRENamedFunction*)malloc(sizeof(FRENamedFunction) * *numFunctionsToTest);
     
     uint32_t position = 0.0;
@@ -41,9 +41,6 @@ void AdobeMobileAnalyticsContextInitializer(void* extData, const uint8_t* ctxTyp
     position = addFREfunctionToArray(func, position, @"trackState", &trackState, NULL);
     position = addFREfunctionToArray(func, position, @"trackAction", &trackAction, NULL);
     position = addFREfunctionToArray(func, position, @"trackActionFromBackground", &trackActionFromBackground, NULL);
-    position = addFREfunctionToArray(func, position, @"trackLocation", &trackLocation, NULL);
-    position = addFREfunctionToArray(func, position, @"trackBeacon", &trackBeacon, NULL);
-    //position = addFREfunctionToArray(func, position, @"trackingClearCurrentBeacon", &trackingClearCurrentBeacon, NULL);
     position = addFREfunctionToArray(func, position, @"trackLifetimeValueIncrease", &trackLifetimeValueIncrease, NULL);
     position = addFREfunctionToArray(func, position, @"trackTimedActionStart", &trackTimedActionStart, NULL);
     position = addFREfunctionToArray(func, position, @"trackTimedActionUpdate", &trackTimedActionUpdate, NULL);
@@ -64,6 +61,26 @@ void AdobeMobileAnalyticsContextInitializer(void* extData, const uint8_t* ctxTyp
     position = addFREfunctionToArray(func, position, @"mediaStop", &mediaStop, NULL);
     position = addFREfunctionToArray(func, position, @"mediaClick", &mediaClick, NULL);
     position = addFREfunctionToArray(func, position, @"mediaTrack", &mediaTrack, NULL);
+    
+    //Location
+    position = addFREfunctionToArray(func, position, @"trackLocation", &trackLocation, NULL);
+    position = addFREfunctionToArray(func, position, @"trackBeacon", &trackBeacon, NULL);
+    position = addFREfunctionToArray(func, position, @"trackingClearCurrentBeacon", &trackingClearCurrentBeacon, NULL);
+    
+    //Audience
+    position = addFREfunctionToArray(func, position, @"audienceVisitorProfile", &audienceVisitorProfile, NULL);
+    position = addFREfunctionToArray(func, position, @"audienceDpid", &audienceDpid, NULL);
+    position = addFREfunctionToArray(func, position, @"audienceDpuuid", &audienceDpuuid, NULL);
+    position = addFREfunctionToArray(func, position, @"audienceSetDpid", &audienceSetDpid, NULL);
+    position = addFREfunctionToArray(func, position, @"audienceSignalWithData", &audienceSignalWithData, NULL);
+    position = addFREfunctionToArray(func, position, @"audienceReset", &audienceReset, NULL);
+    
+    //Target
+    position = addFREfunctionToArray(func, position, @"targetLoadRequest", &targetLoadRequest, NULL);
+    position = addFREfunctionToArray(func, position, @"targetCreateRequestWithName", &targetCreateRequestWithName, NULL);
+    position = addFREfunctionToArray(func, position, @"targetCreateOrderConfirmRequestWithName", &targetCreateOrderConfirmRequestWithName, NULL);
+    position = addFREfunctionToArray(func, position, @"targetClearCookies", &targetClearCookies, NULL);
+    
     
     *functionsToSet = func;
     
