@@ -1,6 +1,7 @@
 package com.tribalnova.extensions.adobe.analytics.impl
 {
 	import com.tribalnova.extensions.adobe.analytics.IADBMobileAnalytics;
+	import com.tribalnova.extensions.adobe.analytics.ObjectUtils;
 	
 	import flash.external.ExtensionContext;
 	
@@ -16,44 +17,44 @@ package com.tribalnova.extensions.adobe.analytics.impl
 		
 		public function trackState(trackState:String, context:Object):void
 		{
-			var keyList:Array = extractKeysFromObj(context);
+			var keyList:Array = ObjectUtils.extractKeysFromObj(context);
 			_extContext.call( "trackState", trackState, context, keyList); 	
 		}
 		
 		public function trackAction(trackAction:String, context:Object):void
 		{
-			var keyList:Array = extractKeysFromObj(context);
+			var keyList:Array = ObjectUtils.extractKeysFromObj(context);
 		
 			_extContext.call( "trackAction", trackAction, context, keyList);
 		}
 		
 		public function trackActionFromBackground(action:String, context:Object):void
 		{
-			var keyList:Array = extractKeysFromObj(context);
+			var keyList:Array = ObjectUtils.extractKeysFromObj(context);
 			_extContext.call( "trackActionFromBackground", trackAction, context, keyList);
 		}
 		
 		public function trackLifetimeValueIncrease(amount:Number, context:Object):void
 		{
-			var keyList:Array = extractKeysFromObj(context);
+			var keyList:Array = ObjectUtils.extractKeysFromObj(context);
 			_extContext.call( "trackLifetimeValueIncrease", amount, context, keyList);
 		}
 		
 		public function trackTimedActionStart(action:String, context:Object):void
 		{
-			var keyList:Array = extractKeysFromObj(context);
+			var keyList:Array = ObjectUtils.extractKeysFromObj(context);
 			_extContext.call( "trackTimedActionStart", action, context, keyList);
 		}
 		
 		public function trackTimedActionUpdate(action:String, context:Object):void
 		{
-			var keyList:Array = extractKeysFromObj(context);
+			var keyList:Array = ObjectUtils.extractKeysFromObj(context);
 			_extContext.call( "trackTimedActionUpdate", action, context, keyList);
 		}
 		
 		public function trackTimedActionEnd(action:String, context:Object):void
 		{
-			var keyList:Array = extractKeysFromObj(context);
+			var keyList:Array = ObjectUtils.extractKeysFromObj(context);
 			_extContext.call( "trackTimedActionEnd", action, context, keyList);
 		}
 		
@@ -77,20 +78,9 @@ package com.tribalnova.extensions.adobe.analytics.impl
 			return _extContext.call( "trackingGetQueueSize") as Number;
 		}
 		
-		public function trackLocation(context:Object):void
+		public function get trackingIdentifier():String
 		{
-			var keyList:Array = extractKeysFromObj(context);
-			_extContext.call( "trackLocation", context, keyList );
-		}
-		
-		private function extractKeysFromObj(dict:Object):Array
-		{
-			var keyList:Array = [];
-			for(var key:String in dict)
-			{
-				keyList.push(key);
-			}
-			return keyList;
+			return _extContext.call( "trackingIdentifier" ) as String;
 		}
 	}
 }

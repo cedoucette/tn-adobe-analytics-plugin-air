@@ -1,6 +1,7 @@
 package com.tribalnova.extensions.adobe.analytics.impl
 {
 	import com.tribalnova.extensions.adobe.analytics.IADBMobileMediaAnalytics;
+	import com.tribalnova.extensions.adobe.analytics.ObjectUtils;
 	
 	import flash.external.ExtensionContext;
 	
@@ -16,7 +17,7 @@ package com.tribalnova.extensions.adobe.analytics.impl
 		public function mediaCreateSettingsWithName(mediaName:String, mediaLength:Number, playerName:String, playerID:String):Object
 		{
 			var obj:Object = _extContext.call( "mediaCreateSettingsWithName", mediaName, mediaLength, playerName, playerID);
-			//dump(obj);
+			//ObjectUtils.dump(obj);
 			return obj;
 		}
 		
@@ -27,7 +28,7 @@ package com.tribalnova.extensions.adobe.analytics.impl
 		
 		public function mediaOpenWithSettings(mediaDescriptor:Object):void
 		{
-			//dump(mediaDescriptor);
+			//ObjectUtils.dump(mediaDescriptor);
 			_extContext.call( "mediaOpenWithSettings", mediaDescriptor);
 		}
 		
@@ -59,19 +60,6 @@ package com.tribalnova.extensions.adobe.analytics.impl
 		public function mediaTrack(state:String, context:Object):void
 		{
 			_extContext.call( "mediaTrack", state, context);
-		}
-		
-		private function dump(obj:Object):void
-		{
-			trace("{");
-			for (var key:String in obj) 
-			{
-				trace(key+" => "+obj[key]);
-				
-			}
-			trace("}")
-			
-			
 		}
 	}
 }

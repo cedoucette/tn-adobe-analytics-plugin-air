@@ -1,8 +1,11 @@
 package com.tribalnova.extensions.adobe.analytics
 {
 	import com.tribalnova.extensions.adobe.analytics.impl.ADBMobileAnalyticsImpl;
+	import com.tribalnova.extensions.adobe.analytics.impl.ADBMobileAudienceImpl;
 	import com.tribalnova.extensions.adobe.analytics.impl.ADBMobileConfigurationImpl;
+	import com.tribalnova.extensions.adobe.analytics.impl.ADBMobileLocationImpl;
 	import com.tribalnova.extensions.adobe.analytics.impl.ADBMobileMediaAnalyticsImpl;
+	import com.tribalnova.extensions.adobe.analytics.impl.ADBMobileTargetImpl;
 	
 	import flash.events.EventDispatcher;
 	import flash.events.StatusEvent;
@@ -17,6 +20,10 @@ package com.tribalnova.extensions.adobe.analytics
 		private var _configuration:IADBMobileConfiguration;
 		private var _analytics:IADBMobileAnalytics;
 		private var _mediaAnalytics:IADBMobileMediaAnalytics;
+		
+		private var _location:IADBMobileLocation;
+		private var _target:IADBMobileTarget;
+		private var _audience:IADBMobileAudience;
 		
 		public function AdobeMobileAnalytics( enforcer:SingletonEnforcer )
 		{
@@ -54,6 +61,9 @@ package com.tribalnova.extensions.adobe.analytics
 			_configuration = new ADBMobileConfigurationImpl(_extContext);
 			_analytics = new ADBMobileAnalyticsImpl(_extContext);
 			_mediaAnalytics = new ADBMobileMediaAnalyticsImpl(_extContext);
+			_location = new ADBMobileLocationImpl(_extContext);
+			_target = new ADBMobileTargetImpl(_extContext);
+			_audience = new ADBMobileAudienceImpl(_extContext);
 		}
 		
 		public function get mediaAnalytics():IADBMobileMediaAnalytics
@@ -80,10 +90,41 @@ package com.tribalnova.extensions.adobe.analytics
 			return _configuration;
 		}
 		
+		public function get location():IADBMobileLocation
+		{
+			if(_location == null)
+				_location = new ADBMobileLocationImpl(_extContext);
+			
+			trace("ADBMobileLocation methods aren't fully implemented, use at your own risk");
+			
+			return _location;
+		}
+		
+		public function get target():IADBMobileTarget
+		{
+			if(_target)
+				_target = new ADBMobileTargetImpl(_extContext);
+			
+			trace("ADBMobileTarget methods aren't fully implemented, use at your own risk");
+			
+			return _target;
+		}
+		
+		public function get audience():IADBMobileAudience
+		{
+			if(_audience)
+				_audience = new ADBMobileAudienceImpl(_extContext);
+			
+			trace("ADBMobileAudience methods aren't fully implemented, use at your own risk");
+			
+			return _audience;
+		}
+		
 		public function helloWorld():String
 		{
 			return _extContext.call( "helloWorld" ) as String;
 		}
+
 	}
 }
 

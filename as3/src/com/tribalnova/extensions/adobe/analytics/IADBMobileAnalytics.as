@@ -21,7 +21,6 @@ package com.tribalnova.extensions.adobe.analytics
 		function trackingClearQueue():void;
 		
 		function get trackingQueueSize():Number;
-		
-		function trackLocation(context:Object):void;
+		function get trackingIdentifier():String;
 	}
 }
