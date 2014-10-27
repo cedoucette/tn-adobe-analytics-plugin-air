@@ -70,6 +70,31 @@ NSDictionary* FREObjectToDictionary(FREObject* dictionary, FREObject* dictionary
     return [contextData copy];
 }
 
+FREObject* NSDictionaryToFREObject(NSDictionary* dictionary)
+{
+    NSArray *dictKeys = [dictionary allKeys];
+    
+    FREObject retObj;
+    FRENewObject((const uint8_t*)"Object", 0, nil, &retObj, nil);
+    
+    for (NSString *key in dictKeys) {
+        NSObject *value = [dictionary valueForKey:key];
+        FREObject valueObj;
+        if([value isKindOfClass:[NSString class]])
+        {
+            valueObj = NSStringToFREObject((NSString *)value);
+        }
+        else// if([value isKindOfClass:[NSNumber class]])
+        {
+            FRENewObjectFromDouble([(NSNumber *)value doubleValue], &valueObj);
+        }
+        
+        FRESetObjectProperty(retObj, (const uint8_t *)[key UTF8String], valueObj, nil);
+    }
+
+    return retObj;
+}
+
 
 FREObject* NSStringToFREObject(NSString* string)
 {

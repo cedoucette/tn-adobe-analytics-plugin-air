@@ -15,3 +15,4 @@ NSDictionary* FREObjectToDictionary(FREObject* dictionary, FREObject* dictionary
 FREObject* NSStringToFREObject(NSString* string);
 FREObject* ADBMediaSettingsToFREObject(ADBMediaSettings* settings);
 ADBMediaSettings* FREObjectToADBMediaSettings(FREObject* settingsObj);
+FREObject* NSDictionaryToFREObject(NSDictionary* dictionary);

@@ -7,24 +7,13 @@
 
 FREObject audienceVisitorProfile(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[])
 {
-    
-    return nil;
-    
     NSDictionary *visitorProfile = [ADBMobile audienceVisitorProfile];
     
     NSLog(@"audienceVisitorProfile : %@", [visitorProfile description]);
-    NSArray *dictKeys = [visitorProfile allKeys];
-    FREObject visitorProfileObj;
-    FRENewObject((const uint8_t*)"Object", 0, nil, &visitorProfileObj, nil);
     
-    for (NSString *key in dictKeys) {
-        NSObject *value = [visitorProfile valueForKey:key];
-        //FRESetObjectProperty(visitorProfileObj, (const uint8_t) key, <#FREObject propertyValue#>, <#FREObject *thrownException#>)
-    }
+    FREObject visitorProfileObj = NSDictionaryToFREObject(visitorProfile);
     
-    
-    //TODO : Transform NSDictionnary to FREObject
-    return nil;
+    return visitorProfileObj;
 }
 
 /**
