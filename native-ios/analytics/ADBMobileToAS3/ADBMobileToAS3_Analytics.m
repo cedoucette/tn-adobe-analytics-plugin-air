@@ -160,6 +160,7 @@ FREObject trackTimedActionEnd(FREContext ctx, void* funcData, uint32_t argc, FRE
         //logic optional block to perform logic and update parameters when this timed event ends, this block can cancel the sending of the hit by returning NO.
         if(contextData != nil && inAppDuration < totalDuration)
         {
+            // logic optional block to perform logic and update parameters when this timed event ends, this block can cancel the sending of the hit by returning NO.
             //Do something ?
         }
         return YES;

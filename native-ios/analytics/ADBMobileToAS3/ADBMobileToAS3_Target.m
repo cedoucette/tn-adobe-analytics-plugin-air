@@ -16,29 +16,41 @@ FREObject targetLoadRequest(FREContext ctx, void* funcData, uint32_t argc, FREOb
 
     FREObject nameObj;
     FREGetObjectProperty(dictionary, (const uint8_t *)"name", &nameObj, nil);
+    //NSLog( @"name");
     FREObject defaultContentObj;
     FREGetObjectProperty(dictionary, (const uint8_t *)"defaultContent", &defaultContentObj, nil);
+    //NSLog( @"defaultContent");
     FREObject parametersObj;
     FREGetObjectProperty(dictionary, (const uint8_t *)"parameters", &parametersObj, nil);
+    //NSLog( @"parameters");
     FREObject parametersKeysObj;
     FREGetObjectProperty(dictionary, (const uint8_t *)"parametersKeys", &parametersKeysObj, nil);
+    //NSLog( @"parametersKeys");
     
     NSString *name = FREObjectToNSString(nameObj);
+    NSLog( @"name = %@", name);
     NSString *defaultContent = FREObjectToNSString(defaultContentObj);
+    NSLog( @"defaultContent = %@", defaultContent);
     NSDictionary *parameters = FREObjectToDictionary(parametersObj, parametersKeysObj);
-    
+    NSLog( @"parameters = %@", parameters);
 
-    
-    ADBTargetLocationRequest *adbRequest = [[ADBTargetLocationRequest init] alloc];
-    
+    //NSLog( @"1");
+    ADBTargetLocationRequest *adbRequest = [[ADBTargetLocationRequest alloc] init];
+    //NSLog( @"2");
     [adbRequest setName: name];
+    //NSLog( @"3");
     [adbRequest setDefaultContent: defaultContent];
-    [adbRequest setParameters:[parameters mutableCopy]];
+    //NSLog( @"4");
+    if(parameters != nil){
+        NSLog( @"parameters isn't nil");
+        [adbRequest setParameters:[parameters mutableCopy]];
+    }
     
+    //NSLog( @"5");
     [ADBMobile targetLoadRequest:adbRequest callback:^(NSString *content) {
         //Do Something ??
     }];
-    
+    //NSLog( @"6");
     return nil;
 }
 
@@ -58,10 +70,13 @@ FREObject targetCreateRequestWithName(FREContext ctx, void* funcData, uint32_t a
     NSString *requestContent = FREObjectToNSString(requestContentObj);
     
     NSDictionary *contextData = FREObjectToDictionary(dictionary, dictionaryKeys);
+    NSLog( @"name: %@, requestContent: %@", requestName, requestContent);
+    NSLog( @"context = %@", contextData);
     
     ADBTargetLocationRequest *request = [ADBMobile targetCreateRequestWithName:requestName defaultContent:requestContent parameters:contextData];
     
     FREObject requestObj;
+    FRENewObject((const uint8_t *)"Object", 0, nil, &requestObj, nil);
     
     FREObject name = NSStringToFREObject([request name]);
     FREObject defaultContent = NSStringToFREObject([request defaultContent]);

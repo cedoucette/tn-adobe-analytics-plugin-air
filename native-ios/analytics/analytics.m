@@ -19,7 +19,7 @@ void AdobeMobileAnalyticsContextInitializer(void* extData, const uint8_t* ctxTyp
     
     NSLog(@"Entering ContextInitializer()");
     
-	*numFunctionsToTest = 44;
+	*numFunctionsToTest = 45;
 	FRENamedFunction* func = (FRENamedFunction*)malloc(sizeof(FRENamedFunction) * *numFunctionsToTest);
     
     uint32_t position = 0.0;

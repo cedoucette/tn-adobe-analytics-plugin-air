@@ -80,7 +80,8 @@ FREObject mediaOpenWithSettings(FREContext ctx, void* funcData, uint32_t argc, F
     ADBMediaSettings *settings = FREObjectToADBMediaSettings(dictionary);
 
     [ADBMobile mediaOpenWithSettings:settings callback:^(ADBMediaState *mediaState) {
-        //Do Something?
+        //a block pointer to call with an ADBMediaState pointer every second.
+        //Do Something? -> Could send events with FREDispatchStatusEventAsync depending on the ADBMediaState datas ?
     }];
     return nil;
 }

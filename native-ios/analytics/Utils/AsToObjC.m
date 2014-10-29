@@ -49,7 +49,9 @@ NSDictionary* FREObjectToDictionary(FREObject* dictionary, FREObject* dictionary
     //Get the lenght of the keyList
     uint32_t keyListLen;
     FREGetArrayLength(dictionaryKeys, &keyListLen);
-    //NSLog( @"keyListLen: %u", keyListLen);
+    
+    if(keyListLen == 0 || dictionaryKeys == nil)
+        return [NSMutableDictionary dictionary];
     
     //Convert the keyList to an usable format (aka NSArray)
     NSArray *keyList = FREObjectToArrayOfNSString(dictionaryKeys, keyListLen);
