@@ -1,7 +1,7 @@
 package com.tribalnova.extensions.adobe.analytics.impl
 {
 	import com.tribalnova.extensions.adobe.analytics.IADBMobileLocation;
-	import com.tribalnova.extensions.adobe.analytics.ObjectUtils;
+	import com.tribalnova.extensions.adobe.analytics.utils.ObjectUtils;
 	
 	import flash.external.ExtensionContext;
 	

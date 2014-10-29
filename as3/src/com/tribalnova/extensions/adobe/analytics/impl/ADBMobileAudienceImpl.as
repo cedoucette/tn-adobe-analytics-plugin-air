@@ -1,7 +1,7 @@
 package com.tribalnova.extensions.adobe.analytics.impl
 {
 	import com.tribalnova.extensions.adobe.analytics.IADBMobileAudience;
-	import com.tribalnova.extensions.adobe.analytics.ObjectUtils;
+	import com.tribalnova.extensions.adobe.analytics.utils.ObjectUtils;
 	
 	import flash.external.ExtensionContext;
 	
@@ -14,7 +14,7 @@ package com.tribalnova.extensions.adobe.analytics.impl
 			_extContext = extensionContext;
 		}
 		
-		public function audienceVisitorProfile():Object
+		public function get audienceVisitorProfile():Object
 		{
 			return _extContext.call( "audienceVisitorProfile" );
 		}

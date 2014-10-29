@@ -1,4 +1,4 @@
-package com.tribalnova.extensions.adobe.analytics
+package com.tribalnova.extensions.adobe.analytics.utils
 {
 	public class ObjectUtils
 	{
