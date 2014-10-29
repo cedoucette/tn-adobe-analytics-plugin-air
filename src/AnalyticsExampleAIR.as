@@ -1,11 +1,14 @@
 package
 {
 	import com.tribalnova.extensions.adobe.analytics.AdobeMobileAnalytics;
+	import com.tribalnova.extensions.adobe.analytics.data.ADBMediaSettings;
+	import com.tribalnova.extensions.adobe.analytics.data.ADBTargetLocationRequest;
 	
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.system.Capabilities;
 	import flash.text.TextField;
+	import flash.utils.Dictionary;
 	
 	import uk.co.soulwire.gui.SimpleGUI;
 	
@@ -20,7 +23,8 @@ package
 		public var privacyStatus:Number = 3;
 		private var _timedActionExists:Boolean;
 		public var lifeTimevalue:Number;
-		private var _mediaSettings:Object;
+		private var _mediaSettings:ADBMediaSettings;
+		private var _request:ADBTargetLocationRequest;
 		
 		public function AnalyticsExampleAIR()
 		{
@@ -39,13 +43,7 @@ package
 			addConfigGroup();
 			_gui.addGroup(" ");
 			_gui.addLabel("  ");
-			_gui.addLabel("  ");
-			_gui.addLabel("  ");
-			_gui.addLabel("  ");
-			_gui.addLabel("  ");
-			_gui.addLabel("  ");
-			_gui.addLabel("  ");
-			addAudienceGroup();
+			addTargetGroup();
 			
 			_gui.addColumn();
 			_gui.addGroup("  ");
@@ -60,15 +58,9 @@ package
 			addMediaAnalyticsGroup()
 			_gui.addGroup();
 			_gui.addLabel("  ");
-			_gui.addLabel("  ");
-			_gui.addLabel("  ");
-			_gui.addLabel("  ");
-			_gui.addLabel("  ");
-			_gui.addLabel("  ");
-			_gui.addLabel("  ");
-			_gui.addLabel("  ");
+			_gui.addLabel("");
+			addAudienceGroup();
 			
-			addTargetGroup();
 			_gui.show();
 			
 		}
@@ -179,25 +171,30 @@ package
 		
 		private function addAudienceGroup():void
 		{
-			
-			_gui.addGroup("Not Yet Implemented");
 			_gui.addGroup("Audience");
-			_gui.addButton("Visitor Profile");
-			_gui.addButton("DPID");
-			_gui.addButton("DPUUID");
-			_gui.addButton("Signal with Data");
-			_gui.addButton("Reset");
-			
+			_gui.addGroup();
+			_gui.addLabel("DPID: "+ ane.audience.audienceDpid);
+			_gui.addLabel("DPUUID: "+ ane.audience.audienceDpuuid);
+			_gui.addButton("Signal with Data", {
+												callback:ane.audience.audienceSignalWithData, 
+												callbackParams: [{ "clicky1": "one", "clicky2": "two", "clicky3": "three", "clicky4": "four" }]
+												});
+			_gui.addButton("Reset", {callback:ane.audience.audienceReset});
+			_gui.addButton("Get Visitor Profile", {callback:onGetVisitorProfile});
 		}
 		
 		private function addTargetGroup():void
 		{
-			_gui.addGroup("Not Yet Implemented");
 			_gui.addGroup("Target");
-			_gui.addButton("Create Request");
+			_gui.addGroup();
+			_gui.addButton("Create Request", { 	callback: onRequest, 
+												callbackParams: [ "create"]
+											});
 			_gui.addButton("Create Order Confirm Request");
-			_gui.addButton("Load Request");
-			_gui.addButton("Clear Cookies");
+			_gui.addButton("Load Request", { 	callback: onRequest, 
+												callbackParams: [ "load"]
+											});
+			_gui.addButton("Clear Cookies", {callback: ane.target.targetClearCookies});
 		}
 		
 		private function addLocationGroup():void
@@ -208,6 +205,41 @@ package
 			_gui.addButton("Track Location");
 			_gui.addButton("Track Beacon");
 			_gui.addButton("Tracking Clear Beacon");
+		}
+		
+		private function onGetVisitorProfile():void
+		{
+			var profile:Object = ane.audience.audienceVisitorProfile;
+			
+			var str:String = "{";
+			for (var key:String in profile) 
+			{
+				str += "\n";
+				str += key+" => "+profile[key];
+				
+			}
+			str += "}";
+			
+			_gui.addGroup();
+			_gui.addLabel(str);
+		}
+		
+		
+		private function onRequest(type:String):void
+		{
+			if(type == "create")
+			{
+				var params:Dictionary = new Dictionary();
+				_request = ane.target.targetCreateRequestWithName("requestName", "defaultRequestContent", params);
+				trace(_request.name, _request.defaultContent, _request.parameters, _request.parametersKeys);
+				trace("onRequest created");
+			}
+			else if(type == "load")
+			{
+				trace(_request);
+				ane.target.targetLoadRequest(_request);
+				trace("onRequest loaded");
+			}
 		}
 		
 		private function onIncreaseLifeTime():void
