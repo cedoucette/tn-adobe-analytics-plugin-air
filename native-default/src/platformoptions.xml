@@ -1,0 +1,6 @@
+<platform xmlns="http://ns.adobe.com/air/extension/15.0">
+     <sdkVersion>6.0.1</sdkVersion>
+     <linkerOptions>
+          <option>-ios_version_min 5.1.1</option>
+     </linkerOptions>
+</platform>

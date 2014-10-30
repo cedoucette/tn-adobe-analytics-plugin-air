@@ -6,8 +6,7 @@
 //
 //
 
-#import <Foundation/Foundation.h>
-#import "FlashRuntimeExtensions.h"
+#import "ADBMobileToAS3.h"
 
 @interface analytics : NSObject
 /* ExtInitializer()
@@ -22,6 +21,20 @@ void AdobeMobileAnalyticsContextFinalizer(FREContext ctx);
 void AdobeMobileAnalyticsInitializer(void** extDataToSet, FREContextInitializer* ctxInitializerToSet, FREContextFinalizer* ctxFinalizerToSet);
 void AdobeMobileAnalyticsFinalizer(void* extData);
 
+
+/**
+ Example function to send a string to AS3
+ */
 FREObject helloWorld(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
+
+/**
+ Example function to call a function with no parameter and nothing returned
+ */
+FREObject helloYou(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
+
+/**
+ Example function to get a string from AS3
+ */
+FREObject getStringFromAS3(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
 
 @end

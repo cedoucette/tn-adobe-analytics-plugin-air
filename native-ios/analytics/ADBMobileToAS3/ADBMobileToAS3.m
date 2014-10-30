@@ -1,0 +1,15 @@
+/**
+ *  Objective-C to AS3 communication bridge for the ADMobile class.
+ */
+
+
+#import "ADBMobileToAS3.h"
+//#import "AsToObjC.h"
+
+#include "ADBMobileToAS3_Configuration.m"
+#include "ADBMobileToAS3_Analytics.m"
+#include "ADBMobileToAS3_Media.m"
+/* TODO : Finish bridge */
+#include "ADBMobileToAS3_Location.m"
+#include "ADBMobileToAS3_Audience.m"
+#include "ADBMobileToAS3_Target.m"
