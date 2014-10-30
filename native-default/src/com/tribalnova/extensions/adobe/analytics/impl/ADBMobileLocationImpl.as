@@ -20,7 +20,7 @@ package com.tribalnova.extensions.adobe.analytics.impl
 			//_extContext.call( "trackLocation", context, keyList );
 		}
 		
-		public function trackBeacon():void
+		public function trackBeacon(beaconID:String):void
 		{
 			//_extContext.call( "trackBeacon");
 		}

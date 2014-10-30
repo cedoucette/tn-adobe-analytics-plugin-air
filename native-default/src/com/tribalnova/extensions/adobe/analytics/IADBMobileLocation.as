@@ -4,7 +4,7 @@ package com.tribalnova.extensions.adobe.analytics
 	{
 		function trackLocation(context:Object):void;
 		
-		function trackBeacon():void;
+		function trackBeacon(beaconID:String):void;
 		function trackingClearCurrentBeacon():void;
 	}
 }

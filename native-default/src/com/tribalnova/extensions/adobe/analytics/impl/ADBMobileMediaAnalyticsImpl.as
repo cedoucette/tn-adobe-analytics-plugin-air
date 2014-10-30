@@ -2,6 +2,7 @@ package com.tribalnova.extensions.adobe.analytics.impl
 {
 	import com.tribalnova.extensions.adobe.analytics.IADBMobileMediaAnalytics;
 	import com.tribalnova.extensions.adobe.analytics.ObjectUtils;
+	import com.tribalnova.extensions.adobe.analytics.data.ADBMediaSettings;
 	
 	import flash.external.ExtensionContext;
 	
@@ -14,21 +15,21 @@ package com.tribalnova.extensions.adobe.analytics.impl
 			_extContext = extensionContext;
 		}
 		
-		public function mediaCreateSettingsWithName(mediaName:String, mediaLength:Number, playerName:String, playerID:String):Object
+		public function mediaCreateSettingsWithName(mediaName:String, mediaLength:Number, playerName:String, playerID:String):ADBMediaSettings
 		{
 			//var obj:Object = _extContext.call( "mediaCreateSettingsWithName", mediaName, mediaLength, playerName, playerID);
 			//ObjectUtils.dump(obj);
 			var obj:Object = {mediaName:mediaName, mediaLength:mediaLength, playerName:playerName, playerID:playerID};
-			return obj;
+			return new ADBMediaSettings(obj);
 		}
 		
-		public function mediaAdCreateSettingsWithName(adName:String, adLength:Number, playerName:String, parentName:String, podName:String, parentPosition:Number, CPM:String):Object
+		public function mediaAdCreateSettingsWithName(adName:String, adLength:Number, playerName:String, parentName:String, podName:String, parentPosition:Number, CPM:String):ADBMediaSettings
 		{
 			//return _extContext.call( "mediaAdCreateSettingsWithName", adName, adLength, playerName, parentName, podName, parentPosition, CPM);
-			return {adName:adName, adLength:adLength, playerName:playerName, parentName:parentName, podName:podName, parentPosition:parentPosition, CPM:CPM};
+			return new ADBMediaSettings({adName:adName, adLength:adLength, playerName:playerName, parentName:parentName, podName:podName, parentPosition:parentPosition, CPM:CPM});
 		}
 		
-		public function mediaOpenWithSettings(mediaDescriptor:Object):void
+		public function mediaOpenWithSettings(mediaDescriptor:ADBMediaSettings):void
 		{
 			//ObjectUtils.dump(mediaDescriptor);
 			//_extContext.call( "mediaOpenWithSettings", mediaDescriptor);

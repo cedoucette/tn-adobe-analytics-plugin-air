@@ -11,7 +11,7 @@ package com.tribalnova.extensions.adobe.analytics
 		FREObject audienceReset(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]);
 		*/
 		
-		function audienceVisitorProfile():Object;
+		function get audienceVisitorProfile():Object;
 		function get audienceDpid():String;
 		function get audienceDpuuid():String;
 		function setAudienceDpid(dpid:String, dpuuid:String):void;

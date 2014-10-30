@@ -15,13 +15,13 @@ package com.tribalnova.extensions.adobe.analytics.impl
 			_extContext = extensionContext;
 		}
 		
-		public function trackState(trackState:String, context:Object):void
+		public function trackState(state:String, context:Object):void
 		{
 			var keyList:Array = ObjectUtils.extractKeysFromObj(context);
 			//_extContext.call( "trackState", trackState, context, keyList);
 		}
 		
-		public function trackAction(trackAction:String, context:Object):void
+		public function trackAction(action:String, context:Object):void
 		{
 			var keyList:Array = ObjectUtils.extractKeysFromObj(context);
 		
