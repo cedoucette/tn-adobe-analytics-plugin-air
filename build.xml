@@ -40,8 +40,7 @@
 			<for list="default,ios" param="platform">
 				<sequential>
 					<build-swc platform="@{platform}" />
-					<extract-library-from-swc platform="@{platform}" />
-					<copy-resources platform="@{platform}" />		
+					<extract-library-from-swc platform="@{platform}" />		
 				</sequential>
 			</for>
 			
@@ -110,18 +109,6 @@
 			<copy file="${dir.project.temp}/library.swf" todir="${dir.project.build}/@{platform}"/>
 		</sequential>
 	</macrodef>
-
-    <macrodef name="copy-resources">
-        <attribute name="platform" />
-        <sequential>
-        	<copy todir="${dir.project.build}/@{platform}" flatten="true">
-				<fileset dir="${dir.project.ane}/resources">
-				    <include name="**/*.json"/>
-				</fileset>
-			</copy>    
-        </sequential>
-    </macrodef>
-
 	
 	<macrodef name="build-ane">
 			<sequential>
