@@ -94,7 +94,7 @@
 				<arg value="-source-path" /> 		<arg value="${dir.project.as3-@{platform}}/src" />
 				<arg value="-include-classes" /> 	<arg value="${project.class.name}" />
 				<arg value="-swf-version" />		<arg value="${SWF_VERSION}" />
-				<arg value="-output" />				<arg value="${dir.project.temp}/${project.name}.swc" />
+				<arg value="-output" />				<arg value="${dir.project.temp}/${project.swc.name}.swc" />
 			</exec>
 		</sequential>
 	</macrodef>
@@ -103,7 +103,7 @@
 		<attribute name="platform" />
 		<sequential>
 			<echo message="extract-library-from-swc for platform @{platform}" />
-			<unzip src="${dir.project.temp}/${project.name}.swc" dest="${dir.project.temp}/"/>
+			<unzip src="${dir.project.temp}/${project.swc.name}.swc" dest="${dir.project.temp}/"/>
 			<copy file="${dir.project.temp}/library.swf" todir="${dir.project.build}/@{platform}"/>
 		</sequential>
 	</macrodef>
@@ -126,7 +126,7 @@
 				<exec executable="${ADT}" failonerror="true" dir="${basedir}">
 					<arg value="-package" />
 					<arg value="-target" />			<arg value="ane"/><arg value="${dir.project.ane-bin}/${project.ane.name}.ane" /><arg value="${dir.project.ane}/src/extension.xml" />
-					<arg value="-swc" /> 			<arg value="${dir.project.temp}/${project.name}.swc" />
+					<arg value="-swc" /> 			<arg value="${dir.project.temp}/${project.swc.name}.swc" />
 					<arg value="-platform" /> 		<arg value="default" />
 					<arg value="-C" /> 				<arg value="${dir.project.build}/default" />
 					<arg value="." />
@@ -135,7 +135,7 @@
 					<arg value="." />
 				</exec>
 				<echo message="Copy SWC representation to ${dir.project.ane-bin}" />
-				<copy file="${dir.project.temp}/${project.name}.swc" tofile="${dir.project.ane-bin}/${project.swc.name}.swc" />
+				<copy file="${dir.project.temp}/${project.swc.name}.swc" todir="${dir.project.ane-bin}" />
 			</sequential>
 	</macrodef>	
 </project>
