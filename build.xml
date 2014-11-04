@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="Adobe Mobile Analytics ANE" 
 	basedir="."
-	default="init" 
+	default="build-all" 
 	>
 	<description>Adobe Mobile Analytics ANE</description>
+	
+	<!-- <property name="AIRSDK" value="./AIRSDK" /> -->
+	<!-- <property name="BRANCH" value="develop" /> -->
 	
 	<property file="build/sdk.properties" />
 	<property file="build/build.properties" />
