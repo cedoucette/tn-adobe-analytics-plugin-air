@@ -125,7 +125,7 @@
 				<echo message="build-ane" />
 				<exec executable="${ADT}" failonerror="true" dir="${basedir}">
 					<arg value="-package" />
-					<arg value="-target" />			<arg value="ane"/><arg value="${dir.project.ane-bin}/${project.name}" /><arg value="${dir.project.ane}/src/extension.xml" />
+					<arg value="-target" />			<arg value="ane"/><arg value="${dir.project.ane-bin}/${project.ane.name}.ane" /><arg value="${dir.project.ane}/src/extension.xml" />
 					<arg value="-swc" /> 			<arg value="${dir.project.temp}/${project.name}.swc" />
 					<arg value="-platform" /> 		<arg value="default" />
 					<arg value="-C" /> 				<arg value="${dir.project.build}/default" />
@@ -135,7 +135,7 @@
 					<arg value="." />
 				</exec>
 				<echo message="Copy SWC representation to ${dir.project.ane-bin}" />
-				<copy file="${dir.project.temp}/${project.name}.swc" todir="${dir.project.ane-bin}" />
+				<copy file="${dir.project.temp}/${project.name}.swc" tofile="${dir.project.ane-bin}/${project.swc.name}.swc" />
 			</sequential>
 	</macrodef>	
 </project>
