@@ -29,7 +29,7 @@ package com.tribalnova.extensions.adobe.analytics
 		{
 			super();
 			
-			// Second parameter is optional and supplies context to matove code
+			// Second parameter is optional and supplies context to native code
 			_extContext = ExtensionContext.createExtensionContext("com.tribalnova.extensions.adobe.analytics", "" );
 			
 			if ( _extContext == null )
