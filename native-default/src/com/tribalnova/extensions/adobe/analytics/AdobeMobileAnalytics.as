@@ -94,8 +94,6 @@ package com.tribalnova.extensions.adobe.analytics
 			if(_target)
 				_target = new ADBMobileTargetImpl(null);
 			
-			trace("ADBMobileTarget methods aren't fully implemented, use at your own risk");
-			
 			return _target;
 		}
 		
@@ -103,8 +101,6 @@ package com.tribalnova.extensions.adobe.analytics
 		{
 			if(_audience)
 				_audience = new ADBMobileAudienceImpl(null);
-			
-			trace("ADBMobileAudience methods aren't fully implemented, use at your own risk");
 			
 			return _audience;
 		}

@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="Adobe Mobile Analytics ANE" 
 	basedir="."
-	default="init" 
+	default="build-all" 
 	>
 	<description>Adobe Mobile Analytics ANE</description>
 	
-	<property file="build/build.properties" />
+	<!-- <property name="AIRSDK" value="./AIRSDK" /> -->
+	<!-- <property name="BRANCH" value="develop" /> -->
+	
 	<property file="build/sdk.properties" />
+	<property file="build/build.properties" />
 	
 	<taskdef resource="flexTasks.tasks" classpath="${FLEX_TASKS}" />
 	<taskdef resource="net/sf/antcontrib/antlib.xml" classpath="${basedir}/build/ant-contrib-1.0b3.jar" />
@@ -26,138 +29,103 @@
 		- EXTERNAL: Compile example app
 	-->
 	
+	<target name="init">
+		<echo message="init" />
+		
+		<sequential>
+			<prepare-build-space />
+			
+			<prepare-platform-ios /> <!-- Should do <retrieve-dependencies/> ?-->
+			
+			<for list="default,ios" param="platform">
+				<sequential>
+					<build-swc platform="@{platform}" />
+					<extract-library-from-swc platform="@{platform}" />		
+				</sequential>
+			</for>
+			
+			<build-ane />
+			<clean-build-space />
+		</sequential>
+		
+	</target>
+	
+	<target name="build-all">
+		 <ant antfile="${dir.project.native-ios}/build-xcode.xml" useNativeBasedir="true" />
+		 <antcall target="init"></antcall>
+	</target>
+	
+	
 	
 	<macrodef name="clean-build-space">
 		<sequential>
-			
 			<echo message="Delete contents of ${dir.project.build}" />
-			<delete includeemptydirs="true">
+			<!-- <delete includeemptydirs="true" quiet="true">
 				<fileset dir="${dir.project.build}" includes="**/*" />
 			</delete>
-			
+			<echo message="Delete contents of ${dir.project.temp}" />
+			<delete includeemptydirs="true" quiet="true">
+				<fileset dir="${dir.project.temp}" includes="**/*" />
+			</delete>
+			-->
+			<delete includeemptydirs="true" dir="${dir.project.build}" />
+			<delete includeemptydirs="true" dir="${dir.project.temp}" />
 		</sequential>
 	</macrodef>
 	
 	
 	<macrodef name="prepare-build-space">
 		<sequential>
-			
 			<mkdir dir="${dir.project.build}/default" />
 			<mkdir dir="${dir.project.build}/ios" />
-			<mkdir dir="${dir.project.build}/temp" />
-			
 		</sequential>
 	</macrodef>
-	
 	
 	<macrodef name="prepare-platform-ios">
 			<sequential>
-				
 				<echo message="Prepare files for iOS platform" />
-				
+				<copy file="${dir.project.native-ios}/build/libAdobeMobileAnalytics.a" tofile="${dir.project.build}/ios/libAdobeMobileAnalytics.a"/>
 			</sequential>
 	</macrodef>
 	
-	
-	
-	<!--
-	<property name="APP_NAME" value="iReadWith - Demo app" />
-	<import file="../../tn-irw-build-common/build-common.xml"/>
-	-->
-
-	<!--
-	<target name="main">
-		
-		<echo message="Lancer main.DEV, main.QA ou main.APPSTORE pour lancer un build."/>
-
-		<antcall target="init" />
-		<build-ane />
-		
-	</target>
-	-->
-	
-	<target name="init">
-		<!--
-		<echo message="Lancer main.DEV, main.QA ou main.APPSTORE pour lancer un build."/>
-		-->
-		<echo message="init" />
-		<!--
-		<clean env="@{env}" locale="@{locale} "/>
-		-->
+	<macrodef name="build-swc">
+		<attribute name="platform" />
 		<sequential>
-			
-			<clean-build-space />
-			<prepare-build-space />
-			
-			<prepare-platform-ios />
-				
-			<build-platform-default />
-			<extract-library-from-swc platform="default" />
-			
-			<build-ane-swc />
-			<extract-library-from-swc platform="ane" />
-			
-			<build-ane />
-			
-			<clean-build-space />
-			
+			<echo message="Generate SWC for @{platform}" />
+			<exec executable="${ACOMPC}" failonerror="true" dir="${basedir}">
+				<arg value="-source-path" /> 		<arg value="${dir.project.as3-@{platform}}/src" />
+				<arg value="-include-classes" /> 	<arg value="${project.class.name}" />
+				<arg value="-swf-version" />		<arg value="${SWF_VERSION}" />
+				<arg value="-output" />				<arg value="${dir.project.temp}/${project.swc.name}.swc" />
+			</exec>
 		</sequential>
-		<!--
-		<retrieve-dependencies/>
-		-->
-	</target>
-	
-	
-	<macrodef name="build-platform-default">
-			<sequential>
-				
-				<echo message="build-platform-default" />
-				<!--
-echo "Generate SWC for default implementation"
-$ACOMPC -source-path $NATIVE_DEFAULT/src/ -include-classes $INCLUDE_CLASSES -swf-version=$SWFVERSION -output $ANE_HOME/build/temp/$NAME.swc
-
-echo "Extract library from ANE SWC"
-unzip $ANE_HOME/build/temp/$NAME.swc -d $ANE_HOME/build/temp/
-cp $ANE_HOME/build/temp/library.swf $ANE_HOME/build/default/
-rm -rf $ANE_HOME/build/temp/*
-				-->
-				
-				
-				
-			</sequential>
 	</macrodef>
-	
-	
-	<macrodef name="build-ane-swc">
-			<sequential>
-				<echo message="build-ame-swc" />
-			</sequential>
-	</macrodef>
-	
+		
 	<macrodef name="extract-library-from-swc">
 		<attribute name="platform" />
-		
 		<sequential>
 			<echo message="extract-library-from-swc for platform @{platform}" />
+			<unzip src="${dir.project.temp}/${project.swc.name}.swc" dest="${dir.project.temp}/"/>
+			<copy file="${dir.project.temp}/library.swf" todir="${dir.project.build}/@{platform}"/>
 		</sequential>
 	</macrodef>
 	
 	<macrodef name="build-ane">
 			<sequential>
-				
-				<echo message="${WHAT_TO_BUILD}" />
 				<echo message="build-ane" />
-				<!-- Jenkins will pass comma separated value with the target to call (ex: main.QA,main.QA-Lite ) -->
-				<for list="${WHAT_TO_BUILD}" param="targetToCall">
-					<sequential>
-						<echo message="building: @{targetToCall}" />
-						<!--
-						<antcall target="@{targetToCall}" />
-						-->
-					</sequential>
-				</for>
-
+				<exec executable="${ADT}" failonerror="true" dir="${basedir}">
+					<arg value="-package" />
+					<arg value="-target" />			<arg value="ane"/><arg value="${dir.project.ane-bin}/${project.ane.name}.ane" /><arg value="${dir.project.ane}/src/extension.xml" />
+					<arg value="-swc" /> 			<arg value="${dir.project.temp}/${project.swc.name}.swc" />
+					<arg value="-platform" /> 		<arg value="default" />
+					<arg value="-C" /> 				<arg value="${dir.project.build}/default" />
+					<arg value="." />
+					<arg value="-platform" /> 		<arg value="iPhone-ARM" />
+					<arg value="-C" /> 				<arg value="${dir.project.build}/ios" />
+					<arg value="." />
+				</exec>
+				<echo message="Copy SWC representation to ${dir.project.ane-bin}" />
+				<copy file="${dir.project.temp}/${project.swc.name}.swc" todir="${dir.project.ane-bin}" />
 			</sequential>
-	</macrodef>
-	
+	</macrodef>	
 </project>

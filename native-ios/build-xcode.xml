@@ -13,12 +13,14 @@
 		<condition property="xcode-prop.build.type" value="Release" else="Debug">
 			<equals arg1="${xcode-prop.build.debug}" arg2="false" casesensitive="false" />
 		</condition>
+		<echo message="Build type set to ${xcode-prop.build.type}" />
 	</target>
 	
 	<target name="xcode.cleanbuild" depends="xcode.buildtype" description="Clean the iOS Library">
 	    <exec executable="xcodebuild" failonerror="true" dir="${xcode-prop.project.root}">
 	        <arg line="clean -configuration ${xcode-prop.build.type}" />
 	    </exec>
+	    <echo message="Cleaned build folder" />
 	</target>
 	
 	<target name="xcode.build" depends="xcode.cleanbuild" description="Build the iOS Library">
