@@ -117,12 +117,19 @@
 					<arg value="-package" />
 					<arg value="-target" />			<arg value="ane"/><arg value="${dir.project.ane-bin}/${project.ane.name}.ane" /><arg value="${dir.project.ane}/src/extension.xml" />
 					<arg value="-swc" /> 			<arg value="${dir.project.temp}/${project.swc.name}.swc" />
-					<arg value="-platform" /> 		<arg value="default" />
-					<arg value="-C" /> 				<arg value="${dir.project.build}/default" />
-					<arg value="." />
+					<!-- iOS implementation -->
 					<arg value="-platform" /> 		<arg value="iPhone-ARM" />
 					<arg value="-C" /> 				<arg value="${dir.project.build}/ios" />
 					<arg value="." />
+					<!-- Default implementation -->
+					<arg value="-platform" /> 		<arg value="default" />
+					<arg value="-C" /> 				<arg value="${dir.project.build}/default" />
+					<arg value="." />
+					<!-- Default windows implementation  (as Flex is kind of stupid)-->
+					<arg value="-platform" /> 		<arg value="Windows-x86" />
+					<arg value="-C" /> 				<arg value="${dir.project.build}/default" />
+					<arg value="." />
+					
 				</exec>
 				<echo message="Copy SWC representation to ${dir.project.ane-bin}" />
 				<copy file="${dir.project.temp}/${project.swc.name}.swc" todir="${dir.project.ane-bin}" />
