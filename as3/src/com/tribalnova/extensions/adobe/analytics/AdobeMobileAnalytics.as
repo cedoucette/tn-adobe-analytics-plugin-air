@@ -25,6 +25,8 @@ package com.tribalnova.extensions.adobe.analytics
 		private var _target:IADBMobileTarget;
 		private var _audience:IADBMobileAudience;
 		
+		private var _isSupported:Boolean;
+		
 		public function AdobeMobileAnalytics( enforcer:SingletonEnforcer )
 		{
 			super();
@@ -32,9 +34,13 @@ package com.tribalnova.extensions.adobe.analytics
 			// Second parameter is optional and supplies context to native code
 			_extContext = ExtensionContext.createExtensionContext("com.tribalnova.extensions.adobe.analytics", "" );
 			
-			if ( _extContext == null )
-				throw new Error( "Extension is not supported on this platform." );
-			
+			if ( _extContext == null ) 
+			{
+				_isSupported = false;
+				//throw new Error( "Extension is not supported on this platform." );
+			}
+				
+			_isSupported = true;
 			_extContext.addEventListener( StatusEvent.STATUS, onStatus );
 		}
 
@@ -120,6 +126,12 @@ package com.tribalnova.extensions.adobe.analytics
 		{
 			return _extContext.call( "helloWorld" ) as String;
 		}
+
+		public function get isSupported():Boolean
+		{
+			return _isSupported;
+		}
+
 
 	}
 }

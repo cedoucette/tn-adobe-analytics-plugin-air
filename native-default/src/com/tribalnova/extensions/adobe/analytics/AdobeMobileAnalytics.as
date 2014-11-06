@@ -109,6 +109,11 @@ package com.tribalnova.extensions.adobe.analytics
 		{
 			return "Hello World!";
 		}
+		
+		public function get isSupported():Boolean
+		{
+			return false;
+		}
 
 	}
 }
