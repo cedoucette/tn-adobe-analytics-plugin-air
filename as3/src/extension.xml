@@ -18,5 +18,8 @@
         <platform name="default">
             <applicationDeployment/>
         </platform>
+        <platform name="Windows-x86">
+            <applicationDeployment/>
+        </platform>
 	</platforms>
 </extension>
