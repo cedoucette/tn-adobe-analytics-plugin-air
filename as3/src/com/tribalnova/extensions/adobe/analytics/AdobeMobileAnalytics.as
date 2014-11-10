@@ -60,6 +60,7 @@ package com.tribalnova.extensions.adobe.analytics
 		private function onStatus( e:StatusEvent ):void
 		{
 			// Do nothing yet
+			trace("on status");
 		}
 		
 		private function init():void
@@ -70,6 +71,7 @@ package com.tribalnova.extensions.adobe.analytics
 			_location = new ADBMobileLocationImpl(_extContext);
 			_target = new ADBMobileTargetImpl(_extContext);
 			_audience = new ADBMobileAudienceImpl(_extContext);
+			trace("init");
 		}
 		
 		public function get mediaAnalytics():IADBMobileMediaAnalytics
@@ -93,6 +95,7 @@ package com.tribalnova.extensions.adobe.analytics
 			if(_configuration == null)
 				_configuration = new ADBMobileConfigurationImpl(_extContext);
 			
+			trace("get configuration");
 			return _configuration;
 		}
 		
