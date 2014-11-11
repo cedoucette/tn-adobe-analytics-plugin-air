@@ -1,5 +1,6 @@
 package com.tribalnova.extensions.adobe.analytics
 {
+	import com.tribalnova.extensions.adobe.analytics.events.AdobeMobileAnalyticsEvent;
 	import com.tribalnova.extensions.adobe.analytics.impl.ADBMobileAnalyticsImpl;
 	import com.tribalnova.extensions.adobe.analytics.impl.ADBMobileAudienceImpl;
 	import com.tribalnova.extensions.adobe.analytics.impl.ADBMobileConfigurationImpl;
@@ -39,9 +40,9 @@ package com.tribalnova.extensions.adobe.analytics
 				_isSupported = false;
 				//throw new Error( "Extension is not supported on this platform." );
 			}
+			_extContext.addEventListener( StatusEvent.STATUS, onStatus );
 				
 			_isSupported = true;
-			_extContext.addEventListener( StatusEvent.STATUS, onStatus );
 		}
 
 		public static function get instance():AdobeMobileAnalytics
@@ -59,8 +60,10 @@ package com.tribalnova.extensions.adobe.analytics
 		
 		private function onStatus( e:StatusEvent ):void
 		{
-			// Do nothing yet
 			trace("on status");
+			
+			if(e.code == AdobeMobileAnalyticsEvent.ANE_IS_READY)
+				dispatchEvent(new AdobeMobileAnalyticsEvent(AdobeMobileAnalyticsEvent.ANE_IS_READY));
 		}
 		
 		private function init():void

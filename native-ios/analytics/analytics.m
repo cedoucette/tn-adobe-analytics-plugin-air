@@ -84,6 +84,8 @@ void AdobeMobileAnalyticsContextInitializer(void* extData, const uint8_t* ctxTyp
     
     *functionsToSet = func;
     
+    FREDispatchStatusEventAsync(ctx, (const uint8_t*)"ready", (const uint8_t*)"ANEIsReady");
+    
     NSLog(@"Exiting ContextInitializer()");
 }
 
