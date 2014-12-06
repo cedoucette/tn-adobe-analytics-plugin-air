@@ -57,11 +57,13 @@
 		 <antcall target="init"></antcall>
 	</target>
 	
-	
+	<target name="build-swc">
+		 <antcall target="init"></antcall>
+	</target>
 	
 	<macrodef name="clean-build-space">
 		<sequential>
-			<echo message="Delete contents of ${dir.project.build}" />
+			<echo message="Delete temporary files from ${dir.project.build}" />
 			<!-- <delete includeemptydirs="true" quiet="true">
 				<fileset dir="${dir.project.build}" includes="**/*" />
 			</delete>
@@ -75,7 +77,6 @@
 		</sequential>
 	</macrodef>
 	
-	
 	<macrodef name="prepare-build-space">
 		<sequential>
 			<mkdir dir="${dir.project.build}/default" />
@@ -84,16 +85,16 @@
 	</macrodef>
 	
 	<macrodef name="prepare-platform-ios">
-			<sequential>
-				<echo message="Prepare files for iOS platform" />
-				<copy file="${dir.project.native-ios}/build/libAdobeMobileAnalytics.a" tofile="${dir.project.build}/ios/libAdobeMobileAnalytics.a"/>
-			</sequential>
+		<sequential>
+			<echo message="Prepare files for iOS platform" />
+			<copy file="${dir.project.native-ios}/build/libAdobeMobileAnalytics.a" tofile="${dir.project.build}/ios/libAdobeMobileAnalytics.a"/>
+		</sequential>
 	</macrodef>
 	
 	<macrodef name="build-swc">
 		<attribute name="platform" />
 		<sequential>
-			<echo message="Generate SWC for @{platform}" />
+			<echo message="Generate SWC for @{platform} from ${dir.project.as3-@{platform}}/src" />
 			<exec executable="${ACOMPC}" failonerror="true" dir="${basedir}">
 				<arg value="-source-path" /> 		<arg value="${dir.project.as3-@{platform}}/src" />
 				<arg value="-include-classes" /> 	<arg value="${project.class.name}" />
@@ -102,39 +103,43 @@
 			</exec>
 		</sequential>
 	</macrodef>
-		
+	
 	<macrodef name="extract-library-from-swc">
 		<attribute name="platform" />
 		<sequential>
 			<echo message="extract-library-from-swc for platform @{platform}" />
+			<delete includeemptydirs="true" dir="${dir.project.temp}/*" />
 			<unzip src="${dir.project.temp}/${project.swc.name}.swc" dest="${dir.project.temp}/"/>
 			<copy file="${dir.project.temp}/library.swf" todir="${dir.project.build}/@{platform}"/>
 		</sequential>
 	</macrodef>
 	
 	<macrodef name="build-ane">
-			<sequential>
-				<echo message="build-ane" />
-				<exec executable="${ADT}" failonerror="true" dir="${basedir}">
-					<arg value="-package" />
-					<arg value="-target" />			<arg value="ane"/><arg value="${dir.project.ane-bin}/${project.ane.name}.ane" /><arg value="${dir.project.ane}/src/extension.xml" />
-					<arg value="-swc" /> 			<arg value="${dir.project.temp}/${project.swc.name}.swc" />
-					<!-- iOS implementation -->
-					<arg value="-platform" /> 		<arg value="iPhone-ARM" />
-					<arg value="-C" /> 				<arg value="${dir.project.build}/ios" />
-					<arg value="." />
-					<!-- Default implementation -->
-					<arg value="-platform" /> 		<arg value="default" />
-					<arg value="-C" /> 				<arg value="${dir.project.build}/default" />
-					<arg value="." />
-					<!-- Default windows implementation  (as Flex is kind of stupid)-->
-					<arg value="-platform" /> 		<arg value="Windows-x86" />
-					<arg value="-C" /> 				<arg value="${dir.project.build}/default" />
-					<arg value="." />
-					
-				</exec>
-				<echo message="Copy SWC representation to ${dir.project.ane-bin}" />
-				<copy file="${dir.project.temp}/${project.swc.name}.swc" todir="${dir.project.ane-bin}" />
-			</sequential>
-	</macrodef>	
+		<sequential>
+			<echo message="build-ane" />
+			<echo message="${dir.project.temp}" />
+			<exec executable="${ADT}" failonerror="true" dir="${basedir}">
+				<arg value="-package" />
+				<arg value="-target" />			<arg value="ane"/><arg value="${dir.project.ane-bin}/${project.ane.name}.ane" /><arg value="${dir.project.ane}/src/extension.xml" />
+				<arg value="-swc" /> 			<arg value="${dir.project.temp}/${project.swc.name}.swc" />
+				
+				<!-- iOS implementation -->
+				<arg value="-platform" /> 		<arg value="iPhone-ARM" />
+				<arg value="-C" /> 				<arg value="${dir.project.build}/ios" />
+				<arg value="." />
+				
+				<!-- Default Windows implementation -->
+				<arg value="-platform" /> 		<arg value="Windows-x86" />
+				<arg value="-C" /> 				<arg value="${dir.project.build}/default" />
+				<arg value="." />
+				
+				<!-- Default implementation -->
+				<arg value="-platform" /> 		<arg value="default" />
+				<arg value="-C" /> 				<arg value="${dir.project.build}/default" />
+				<arg value="." />
+			</exec>
+			<echo message="Copy SWC representation to ${dir.project.ane-bin}" />
+			<copy file="${dir.project.temp}/${project.swc.name}.swc" todir="${dir.project.ane-bin}" />
+		</sequential>
+	</macrodef>
 </project>

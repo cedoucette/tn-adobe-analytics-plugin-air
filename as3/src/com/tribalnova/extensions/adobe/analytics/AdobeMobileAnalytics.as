@@ -26,7 +26,8 @@ package com.tribalnova.extensions.adobe.analytics
 		private var _target:IADBMobileTarget;
 		private var _audience:IADBMobileAudience;
 		
-		private var _isSupported:Boolean;
+		private static var _isSupported:Boolean = true;
+		
 		
 		public function AdobeMobileAnalytics( enforcer:SingletonEnforcer )
 		{
@@ -45,27 +46,6 @@ package com.tribalnova.extensions.adobe.analytics
 			_isSupported = true;
 		}
 
-		public static function get instance():AdobeMobileAnalytics
-		{
-			if ( _instance == null )
-			{
-				_instance = new AdobeMobileAnalytics( new SingletonEnforcer() );
-				_instance.init();
-			}
-			
-			return _instance;
-		}
-		
-		
-		
-		private function onStatus( e:StatusEvent ):void
-		{
-			trace("on status");
-			
-			if(e.code == AdobeMobileAnalyticsEvent.ANE_IS_READY)
-				dispatchEvent(new AdobeMobileAnalyticsEvent(AdobeMobileAnalyticsEvent.ANE_IS_READY));
-		}
-		
 		private function init():void
 		{
 			_configuration = new ADBMobileConfigurationImpl(_extContext);
@@ -77,9 +57,45 @@ package com.tribalnova.extensions.adobe.analytics
 			trace("init");
 		}
 		
+		
+		/** HANDLERS **/
+		
+		private function onStatus( e:StatusEvent ):void
+		{
+			trace("on status");
+			
+			if(e.code == AdobeMobileAnalyticsEvent.ANE_IS_READY)
+				dispatchEvent(new AdobeMobileAnalyticsEvent(AdobeMobileAnalyticsEvent.ANE_IS_READY));
+		}
+		
+		
+		/** HELPERS **/
+		
+		public static function helloWorld():String
+		{
+			// Doesn't work within static method, and will break in AIR apps in any case
+			// return _extContext.call( "helloWorld" ) as String;
+			
+			return "Hello world (iOS)";
+		}
+		
+		
+		/** GETTERS AND SETTERS **/
+		
+		public static function get instance():AdobeMobileAnalytics
+		{
+			if ( _instance == null )
+			{
+				_instance = new AdobeMobileAnalytics( new SingletonEnforcer() );
+				_instance.init();
+			}
+			
+			return _instance;
+		}
+		
 		public function get mediaAnalytics():IADBMobileMediaAnalytics
 		{
-			if(_mediaAnalytics == null);
+			if(_mediaAnalytics == null)
 				_mediaAnalytics = new ADBMobileMediaAnalyticsImpl(_extContext);	
 			
 			return _mediaAnalytics;
@@ -128,16 +144,10 @@ package com.tribalnova.extensions.adobe.analytics
 			return _audience;
 		}
 		
-		public function helloWorld():String
-		{
-			return _extContext.call( "helloWorld" ) as String;
-		}
-
-		public function get isSupported():Boolean
+		public static function get isSupported():Boolean
 		{
 			return _isSupported;
 		}
-
 
 	}
 }

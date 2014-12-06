@@ -22,11 +22,41 @@ package com.tribalnova.extensions.adobe.analytics
 		private var _target:IADBMobileTarget;
 		private var _audience:IADBMobileAudience;
 		
+		
 		public function AdobeMobileAnalytics( enforcer:SingletonEnforcer )
 		{
 			super();
 		}
 
+		private function init():void
+		{
+			_configuration = new ADBMobileConfigurationImpl(null);
+			_analytics = new ADBMobileAnalyticsImpl(null);
+			_mediaAnalytics = new ADBMobileMediaAnalyticsImpl(null);
+			_location = new ADBMobileLocationImpl(null);
+			_target = new ADBMobileTargetImpl(null);
+			_audience = new ADBMobileAudienceImpl(null);
+		}
+		
+		
+		/** HANDLERS **/
+		
+		private function onStatus( e:StatusEvent ):void
+		{
+			// Do nothing yet
+		}
+		
+		
+		/** HELPERS **/
+		
+		public static function helloWorld():String
+		{
+			return "Hello world (default)";
+		}
+		
+		
+		/** GETTERS AND SETTERS **/
+		
 		public static function get instance():AdobeMobileAnalytics
 		{
 			if ( _instance == null )
@@ -38,26 +68,9 @@ package com.tribalnova.extensions.adobe.analytics
 			return _instance;
 		}
 		
-		
-		
-		private function onStatus( e:StatusEvent ):void
-		{
-			// Do nothing yet
-		}
-		
-		private function init():void
-		{
-			_configuration = new ADBMobileConfigurationImpl(null);
-			_analytics = new ADBMobileAnalyticsImpl(null);
-			_mediaAnalytics = new ADBMobileMediaAnalyticsImpl(null);
-			_location = new ADBMobileLocationImpl(null);
-			_target = new ADBMobileTargetImpl(null);
-			_audience = new ADBMobileAudienceImpl(null);
-		}
-		
 		public function get mediaAnalytics():IADBMobileMediaAnalytics
 		{
-			if(_mediaAnalytics == null);
+			if(_mediaAnalytics == null)
 				_mediaAnalytics = new ADBMobileMediaAnalyticsImpl(null);	
 			
 			return _mediaAnalytics;
@@ -105,16 +118,11 @@ package com.tribalnova.extensions.adobe.analytics
 			return _audience;
 		}
 		
-		public function helloWorld():String
-		{
-			return "Hello World!";
-		}
-		
-		public function get isSupported():Boolean
+		public static function get isSupported():Boolean
 		{
 			return false;
 		}
-
+		
 	}
 }
 
