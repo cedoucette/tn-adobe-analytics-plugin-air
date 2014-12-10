@@ -1,12 +1,12 @@
 package com.tribalnova.extensions.adobe.analytics
 {
-	import com.tribalnova.extensions.adobe.analytics.events.AdobeMobileAnalyticsEvent;
 	import com.tribalnova.extensions.adobe.analytics.impl.ADBMobileAnalyticsImpl;
 	import com.tribalnova.extensions.adobe.analytics.impl.ADBMobileAudienceImpl;
 	import com.tribalnova.extensions.adobe.analytics.impl.ADBMobileConfigurationImpl;
 	import com.tribalnova.extensions.adobe.analytics.impl.ADBMobileLocationImpl;
 	import com.tribalnova.extensions.adobe.analytics.impl.ADBMobileMediaAnalyticsImpl;
 	import com.tribalnova.extensions.adobe.analytics.impl.ADBMobileTargetImpl;
+	import com.tribalnova.extensions.adobe.analytics.events.AdobeMobileAnalyticsEvent;
 	
 	import flash.events.EventDispatcher;
 	import flash.events.StatusEvent;
@@ -62,9 +62,7 @@ package com.tribalnova.extensions.adobe.analytics
 		
 		private function onStatus( e:StatusEvent ):void
 		{
-			trace("on status");
-			
-			if(e.code == AdobeMobileAnalyticsEvent.ANE_IS_READY)
+			if (e.type == AdobeMobileAnalyticsEvent.ANE_IS_READY)
 				dispatchEvent(new AdobeMobileAnalyticsEvent(AdobeMobileAnalyticsEvent.ANE_IS_READY));
 		}
 		

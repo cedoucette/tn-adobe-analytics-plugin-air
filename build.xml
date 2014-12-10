@@ -5,17 +5,18 @@
 	>
 	<description>Adobe Mobile Analytics ANE</description>
 	
-	 <!--
-	<property name="AIRSDK" value="./AIRSDK" />  
-	<property name="BRANCH" value="develop" />
-	-->
+	<!-- Build expects the following to compile:
+	
+			- Properties for AIRSDK and BRANCH
+			- /native-ios/build/libAdobeMobileAnalytics.a
+			
+			-->
 	
 	<property file="build/sdk.properties" />
 	<property file="build/build.properties" />
 	
 	<taskdef resource="flexTasks.tasks" classpath="${FLEX_TASKS}" />
 	<taskdef resource="net/sf/antcontrib/antlib.xml" classpath="${basedir}/build/ant-contrib-1.0b3.jar" />
-	
 	
 	<!--
 		Steps:
@@ -39,10 +40,13 @@
 			
 			<prepare-platform-ios /> <!-- Should do <retrieve-dependencies/> ?-->
 			
-			<for list="default,ios" param="platform">
+			<!-- "default" must go last, or else the SWC will use the iOS implementation and
+					throw a TypeError in non-native implementations (e.g. AIR on desktop) - SH
+					-->
+			<for list="ios,default" param="platform">
 				<sequential>
 					<build-swc platform="@{platform}" />
-					<extract-library-from-swc platform="@{platform}" />		
+					<extract-library-from-swc platform="@{platform}" />	
 				</sequential>
 			</for>
 			
@@ -64,14 +68,6 @@
 	<macrodef name="clean-build-space">
 		<sequential>
 			<echo message="Delete temporary files from ${dir.project.build}" />
-			<!-- <delete includeemptydirs="true" quiet="true">
-				<fileset dir="${dir.project.build}" includes="**/*" />
-			</delete>
-			<echo message="Delete contents of ${dir.project.temp}" />
-			<delete includeemptydirs="true" quiet="true">
-				<fileset dir="${dir.project.temp}" includes="**/*" />
-			</delete>
-			-->
 			<delete includeemptydirs="true" dir="${dir.project.build}" />
 			<delete includeemptydirs="true" dir="${dir.project.temp}" />
 		</sequential>
@@ -121,6 +117,8 @@
 			<exec executable="${ADT}" failonerror="true" dir="${basedir}">
 				<arg value="-package" />
 				<arg value="-target" />			<arg value="ane"/><arg value="${dir.project.ane-bin}/${project.ane.name}.ane" /><arg value="${dir.project.ane}/src/extension.xml" />
+				
+				<!-- IMPORTANT: Copying the SWC from the default implementation since it was built last -->
 				<arg value="-swc" /> 			<arg value="${dir.project.temp}/${project.swc.name}.swc" />
 				
 				<!-- iOS implementation -->
@@ -136,7 +134,7 @@
 				<!-- Default implementation -->
 				<arg value="-platform" /> 		<arg value="default" />
 				<arg value="-C" /> 				<arg value="${dir.project.build}/default" />
-				<arg value="." />
+				<arg value="library.swf" />
 			</exec>
 			<echo message="Copy SWC representation to ${dir.project.ane-bin}" />
 			<copy file="${dir.project.temp}/${project.swc.name}.swc" todir="${dir.project.ane-bin}" />
