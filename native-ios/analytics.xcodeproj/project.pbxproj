@@ -32,7 +32,7 @@
 		4A9062AC19E4487700E11030 /* analyticsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9062AB19E4487700E11030 /* analyticsTests.m */; };
 		4A915B1019EDD0C700574BD2 /* AdobeMobileLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A28056619EDC0E60042BE95 /* AdobeMobileLibrary.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		4AF356BB19F06ACD005E3DBF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF356BA19F06ACD005E3DBF /* SystemConfiguration.framework */; };
-		4AF356BF19F06CE4005E3DBF /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF356B819F06AC5005E3DBF /* libsqlite3.dylib */; };
+		8494F5681D664D56002B3884 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8494F5671D664D56002B3884 /* libsqlite3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +87,8 @@
 		4AF356B819F06AC5005E3DBF /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		4AF356BA19F06ACD005E3DBF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4AF356BD19F06BDC005E3DBF /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		8494F5651D664BB3002B3884 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		8494F5671D664D56002B3884 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = ../../../../../usr/lib/libsqlite3.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +96,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8494F5681D664D56002B3884 /* libsqlite3.dylib in Frameworks */,
 				4A10CD2119F7FFF8000597AA /* CoreLocation.framework in Frameworks */,
-				4AF356BF19F06CE4005E3DBF /* libsqlite3.dylib in Frameworks */,
 				4A90629019E4487700E11030 /* Foundation.framework in Frameworks */,
 				4AF356BB19F06ACD005E3DBF /* SystemConfiguration.framework in Frameworks */,
 				4A915B1019EDD0C700574BD2 /* AdobeMobileLibrary.a in Frameworks */,
@@ -173,6 +175,8 @@
 		4A90628E19E4487700E11030 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8494F5671D664D56002B3884 /* libsqlite3.dylib */,
+				8494F5651D664BB3002B3884 /* libsqlite3.tbd */,
 				4A10CD2019F7FFF8000597AA /* CoreLocation.framework */,
 				4AF356BD19F06BDC005E3DBF /* libsqlite3.0.dylib */,
 				4AF356BA19F06ACD005E3DBF /* SystemConfiguration.framework */,
@@ -432,6 +436,7 @@
 					"$(PROJECT_DIR)/AdobeMobileLibrary",
 				);
 				OTHER_LDFLAGS = "-ObjC";
+				"OTHER_LDFLAGS[arch=*]" = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				SKIP_INSTALL = YES;
@@ -451,6 +456,7 @@
 					"$(PROJECT_DIR)/AdobeMobileLibrary",
 				);
 				OTHER_LDFLAGS = "-ObjC";
+				"OTHER_LDFLAGS[arch=*]" = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				SKIP_INSTALL = YES;
