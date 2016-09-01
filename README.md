@@ -4,3 +4,5 @@ This repository contains an AIR Native Extension that wraps the Adobe Mobile Ana
 
 Reference: https://secure.tribalnova.com/confluence/display/AMA/Adobe+Analytics+plugin+for+AIR
 Since old DNS is gone, you can temporarily view the doc at http://192.168.169.5/display/AMA/Adobe+Analytics+plugin+for+AIR
+
+NOTE: you must be inside the Montréal Office to access the legacy Confluence page referenced above
